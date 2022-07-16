@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 import { useAuth } from "../context/UserAuthContext";
 import { setErrorMessage } from "../context/setErrorMessage";
 
-const Login = () => {
+const SignUp = () => {
   const router = useRouter();
   const auth = useAuth();
 
@@ -61,4 +61,4 @@ const Login = () => {
   }
 };
 
-export default Login;
+export default SignUp;

@@ -18,7 +18,7 @@ const Login = () => {
     event.preventDefault();
 
     auth
-      .signIn(email, password)
+      .logIn(email, password)
       .then(() => {
         // do something after signing in. For example, router.push("/");
         router.push("/");
@@ -34,8 +34,6 @@ const Login = () => {
   if (!auth.user) {
     return (
       <div className={styles.container}>
-        
-
         <main className={styles.main}>
           <h1 className={styles.title}>Login</h1>
           <br />

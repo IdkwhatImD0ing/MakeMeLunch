@@ -23,8 +23,11 @@ export default function ViewIngredients() {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/edit">Add/Remove Ingredients</a>
-            </li>
+                <a href="/ingredient/addIng">Add Ingredients</a>
+              </li>
+              <li>
+                <a href="/ingredient/deleteIng">Remove Ingredients</a>
+              </li>
             <li>
               <a href="/viewingredients">View Ingredients</a>
             </li>

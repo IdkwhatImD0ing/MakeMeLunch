@@ -1,48 +1,38 @@
-# ASL Transcription in Augmented Reality
+# MakeMeLunch
 
 ## 💡Inspiration
 
-Inspiration came from one of my online friends who is deaf. He likes to create content on TikTok and YouTube but doesn't like the fact that he would need to write captions to convey his thoughts to his audience.
-I created this ASL transcriber to hopefully help him create content by allowing him to express his thoughts using American Sign Language.
-The lens would automatically convert the letters into text, letting him create content without worrying about writing captions for every single action.
+Inspiration came from [ideas drafted below] 
 
-Apart from helping transcribe ASL in real time. This lens could also be used as a learning tool for ASL. Real time transcription allows the user to practice speed and accuracy without the need for an interpreter. 
+• ~~i was making dinner when we were discussing this~~
+
+• it's not hard to lose track of what you have/don't have and that means 1) stuff goes bad or 2) you suddenly want to make something and don't realize you don't have what you need
 
 ## 💻What it does
 
-• Uses Machine Learning to classify various hand motions into American Sign Language in real time.
+• Allows a user create an account to store a list of kitchen ingredients.
 
-• Displays the text in augmented reality.
+• List is edited through adding and removing items from search result.
 
-• High Accuracy allows for more precise transcriptions.
+• Displays relevant food recipes based on a user's stored list of ingredients.
 
-• Tapping Screen toggles live predictions on and off.
-
-Predicting the N letter:
-
-![Prediction](src/prediction.png)
+• 
 
 ## 🛠️How we built it
 
-• Lens Studio
+• React/Next.js
 
 • Javascript
 
-• Created model that incorporated transfer learning and image augmentation.
+• Spoontacular API for food/recipe data
 
-• Tensorflow Hub for MobileNetV2 architecture machine learning model pretrained on ImageNet1k [MobileNetV2 based model created by Google](https://tfhub.dev/google/tf2-preview/mobilenet_v2/classification/4)
+• Firebase [for login server?]
 
-• American Sign Language Dataset created by David Lee on roboflow: [Source](https://public.roboflow.com/object-detection/american-sign-language-letters)
-
-• Tensorflow and Keras API to fine tune model: [Link to Model used in this lens](https://github.com/IdkwhatImD0ing/Kaggle/tree/main/SignLanguage)
-
-• Model had a final validation accuracy of 94% on the dataset:
-
-![Model Results](src/ModelResult.png)
+• 
 
 ## 🛑Challenges we ran into
 
-• Originally, the built in MobileNet and EfficientNet Models has problems importing into Lens Studio. Spent over a week's time creating a model from scratch before finding a model on Tensorflow Hub that imported successfully.
+• [testing sign in/sign up screen]
 
 • Lens Studio's API and Template Documentation was a bit confusing, took a while to fully understand.
 
@@ -74,15 +64,11 @@ Predicting the N letter:
 
 ## 📖What we learned
 
-• Various forms of Image Augmentation
-
-• More ways of using Keras and Tensorflow API such as saving model as .onnx and TFLite file.
-
-• How to use Lens Studio
-
 • JavaScript scripting
 
-• ASL
+• HTML formatting
+
+•
 
 ## ⚠️ Known problems
 
@@ -94,10 +80,8 @@ Predicting the N letter:
 
 ## 🛣️ Future Plans
 
-• Once a larger dataset becomes available, re-train model for more accurate real-world performance
+• Filters for time consumption and calorie intake
 
-• Convert [Python Word Ninja](https://github.com/keredson/wordninja) to JavaScript in order to probabilistically split concatenated words. However, this is unfeasible at this time due to the chance of incorrectly predicted letters.
+• Further UI improvements
 
-Word Ninja Usage:
-
-![Split](src/Split.png)
+• Options to display healthier substitutes for certain recipe ingredients 

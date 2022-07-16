@@ -28,10 +28,7 @@ export function deleteIngredient(auth, ingredient) {
   return;
 }
 
-export function getAllIngredients() {
-  const auth = userAuth();
-  const router = useRouter();
-
+export function getAllIngredients(auth) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "ingredients");

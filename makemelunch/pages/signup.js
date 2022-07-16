@@ -38,22 +38,37 @@ const SignUp = () => {
           <h1 className={styles.title}>Signup</h1>
           <br />
           <form onSubmit={(event) => signUp(event, email, password)}>
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <button type="submit">Submit</button>
+            <div align="center">
+              <div align="center">
+                <label htmlFor="email">Email Address: </label>
+              </div>
+              <br />
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </div>
+            <br />
+            <div align="center">
+              <div align="center">
+                <label htmlFor="password">Password: </label>
+              </div>
+              <br />
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </div>
+            <br />
+            <div align="center">
+              <button type="submit">Submit</button>
+            </div>
           </form>
+          <br />
           <Link href="/">&larr; Go back</Link>
         </main>
       </div>

@@ -21,6 +21,10 @@ import {
 
 export default function Home() {
   const auth = useAuth();
+  const handleClick = () => {
+    auth.logOut();
+  };
+
   if (auth.user) {
     return (
       <>
@@ -37,9 +41,9 @@ export default function Home() {
               <li>
                 <a href="/getrecipes">Get Recipes</a>
               </li>
-              <li>
-                <a href="/">Sign Out</a>
-              </li>
+              <Link href="/">
+                <a onClick={() => handleClick()}> Log Out</a>
+              </Link>
             </ul>
           </nav>
         </header>

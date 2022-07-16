@@ -8,6 +8,7 @@ import {
   deleteField,
   setDoc,
   collection,
+  getDoc,
 } from "firebase/firestore";
 
 export function addIngredient(auth, ingredient) {
@@ -28,20 +29,21 @@ export function deleteIngredient(auth, ingredient) {
   return;
 }
 
-export function getAllIngredients(auth) {
+export async function getAllIngredients(auth) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "ingredients");
+  let docSnap = await getDoc(docRef);
 
-  let fields = Object.keys(docRef.data());
+  let fields = Object.keys(docSnap.data());
   if (fields.length == 0) {
     return "error";
   }
-  let string = fields[0];
+  let string = "";
+  string += fields[0];
   for (let i = 1; i < fields.length; i++) {
     string += ",";
     string += fields[i];
   }
-
-  return fields;
+  return string;
 }

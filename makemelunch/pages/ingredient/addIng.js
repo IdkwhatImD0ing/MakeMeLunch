@@ -8,7 +8,7 @@ import { useAuth } from "../../context/UserAuthContext";
 import { setErrorMessage } from "../../context/setErrorMessage";
 import { addIngredient } from "../helper/firebaseHelper";
 
-const Login = () => {
+const addIng = () => {
   const router = useRouter();
   const auth = useAuth();
 
@@ -42,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default addIng;

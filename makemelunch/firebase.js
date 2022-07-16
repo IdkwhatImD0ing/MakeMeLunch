@@ -8,14 +8,14 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAZP-gvy7yEPKVImW7Ho047jeq6dvuX9Qc",
-  authDomain: "makemelunch-d8d20.firebaseapp.com",
-  databaseURL: "https://makemelunch-d8d20-default-rtdb.firebaseio.com",
-  projectId: "makemelunch-d8d20",
-  storageBucket: "makemelunch-d8d20.appspot.com",
-  messagingSenderId: "947794987440",
-  appId: "1:947794987440:web:738d022fae02723b836e75",
-  measurementId: "G-0Q0DBY0N4E",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

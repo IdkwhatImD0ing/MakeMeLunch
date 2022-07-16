@@ -2,39 +2,39 @@ import { database } from "../../firebase";
 import { useAuth } from "../../context/UserAuthContext";
 import { useRouter } from "next/router";
 
-import { doc, updateDoc, deleteField, setDoc } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  deleteField,
+  setDoc,
+  collection,
+} from "firebase/firestore";
 
-function addIngredient(ingredient) {
-  const auth = useAuth();
-  const router = useRouter();
+export function addIngredient(auth, ingredient) {
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "ingredients");
 
-  let userId = auth.currentUser.uid;
-  let colRef = database.collection(userId);
-  let docRef = colRef.doc("ingredients");
-
-  setDoc(docRef, { ingredient: 1 }, { merge: true });
+  setDoc(docRef, { [ingredient]: 1 }, { merge: true });
   return;
 }
 
-function deleteIngredient(ingredient) {
-  const auth = userAuth();
-  const router = useRouter();
+export function deleteIngredient(auth, ingredient) {
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "ingredients");
 
-  let userId = auth.currentUser.uid;
-  let colRef = database.collection(userId);
-  let docRef = colRef.doc("ingredients");
-
-  updateDoc(docRef, { ingredient: deleteField() });
+  updateDoc(docRef, { [ingredient]: deleteField() });
   return;
 }
 
-function getAllIngredients() {
+export function getAllIngredients() {
   const auth = userAuth();
   const router = useRouter();
 
-  let userId = auth.currentUser.uid;
-  let colRef = database.collection(userId);
-  let docRef = colRef.doc("ingredients");
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "ingredients");
 
   let fields = Object.keys(docRef.data());
   if (fields.length == 0) {

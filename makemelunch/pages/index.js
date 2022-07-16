@@ -36,7 +36,10 @@ export default function Home() {
                 <a href="/">Home</a>
               </li>
               <li>
-                <a href="/edit">Add/Remove Ingredients</a>
+                <a href="/ingredient/addIng">Add Ingredients</a>
+              </li>
+              <li>
+                <a href="/ingredient/deleteIng">Remove Ingredients</a>
               </li>
               <li>
                 <a href="/getrecipes">Get Recipes</a>

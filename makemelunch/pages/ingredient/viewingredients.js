@@ -21,6 +21,7 @@ export default function ViewIngredients() {
   const arr = ["apple", "pineapple", "tomato", "orange", "cranberry", "pear", "strawberry", "grape", "dragonfruit", "watermelon"]
   return (
     <>
+    <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>View Ingredients</h1>
         <br />
@@ -32,6 +33,7 @@ export default function ViewIngredients() {
           {ings.map(ing => <h3 id={ing}>{ing}</h3>)}
         </div>
       </main>
+      </div>
     </>
   );
 }

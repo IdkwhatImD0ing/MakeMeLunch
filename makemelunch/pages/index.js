@@ -36,7 +36,7 @@ export default function Home() {
     const editStyle = {
       padding: "10px",
       textAlign: "center",
-      color:"red"
+
     };
 
     const buttonStyle = {
@@ -47,6 +47,10 @@ export default function Home() {
 
     const optStyle = {
       textAlign: "center",
+    }
+
+    const backStyle ={
+      color:"red"
     }
 
     return (
@@ -83,18 +87,18 @@ export default function Home() {
             </Col>
             <Col>
             <Button style={optStyle}>
-              <a href="/ingredient/searchByIng"> Search for Recipe </a>
+              <a href="/ingredient/searchByIng"> Search for Recipe by Ingredient</a>
               </Button>
             </Col>
           </Row>
           
           <Row>
-          <Button>
-              <a href="/">Back to Home</a>
+          <Button style= {backStyle}>
+              <a href="/"><b>Back to Home</b></a>
             </Button>
-            <Button>
+            <Button style= {backStyle}>
               <Link href="/">
-                <a onClick={() => handleClick()}> Log Out </a>
+                <a onClick={() => handleClick()}> <b>Log Out </b></a>
               </Link>
             </Button>
           </Row>

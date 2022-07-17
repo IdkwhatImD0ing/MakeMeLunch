@@ -146,7 +146,7 @@ function ShowRecipe() {
             <text>{recipeObject.extendedingredients}</text>
             {recipeObject.extendedIngredients && (
               <div>
-                {recipeObject.extendedIngredients?.map((ingredient) => (
+                {recipeObject.extendedIngredients?.map((ingredient, index) => (
                   <div id={index} key={recipeObject.extendedIngredients.id}>
                     <h4>{ingredient.original}</h4>
                   </div>

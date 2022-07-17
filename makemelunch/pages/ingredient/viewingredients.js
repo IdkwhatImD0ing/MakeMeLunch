@@ -107,7 +107,7 @@ export default function ViewIngredients() {
           <br />
           {yes && (
             <div className={styles.viewingredients}>
-              {ings.map((ing) => (
+              {ings.map((ing, index) => (
                 <div id={index} key={ing}>
                   <h3 id={ing}>{ing}</h3>
                 </div>

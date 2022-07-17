@@ -35,15 +35,15 @@ export default function Home() {
 
     const editStyle = {
       padding: "10px",
-      textAlign: "center"
-    }
+      textAlign: "center",
+    };
 
     const buttonStyle = {
       padding: "10px",
       textAlign: "center",
-      color: "blue"
-    }
-    
+      color: "blue",
+    };
+
     return (
       <>
         <Container fluid style={editStyle}>
@@ -51,35 +51,37 @@ export default function Home() {
             <h1 style={headStyle}>MakeMyLunch</h1>
 
             <Button>
-
               <a href="/">Back to Home</a>
             </Button>
             <Button>
               <Link href="/">
-                <a onClick={() => handleClick()}> Log Out</a>
-
+                <a onClick={() => handleClick()}> Log Out </a>
               </Link>
             </Button>
           </Row>
           <Row>
-            <Col><a href="/ingredient/viewingredients">View Ingredients</a>
+            <Col>
+              <a href="/ingredient/viewingredients"> View Ingredients </a>
             </Col>
             <Col>
-              <a href="/ingredient/addIng">Add Ingredients</a></Col>
+              <a href="/ingredient/addIng"> Add Ingredients </a>
+            </Col>
 
             <Col>
-              <a href="/ingredient/deleteIng">Remove Ingredients</a>
+              <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+            </Col>
+            <Col>
+              <a href="/ingredient/searchByIng"> Search for Recipe </a>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Button style = {buttonStyle}>
-                <a href="/getrecipes">Get Recipes</a></Button></Col>
-          
-
-
-        </Row>
-      </Container>
+              <Button style={buttonStyle}>
+                <a href="/getrecipes">Get Recipes</a>
+              </Button>
+            </Col>
+          </Row>
+        </Container>
       </>
     );
   }

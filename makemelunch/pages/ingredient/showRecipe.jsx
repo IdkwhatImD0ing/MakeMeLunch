@@ -11,6 +11,7 @@ import { Container, Row, Button, Col } from "reactstrap";
 function showRecipe() {
   const auth = useAuth();
   const router = useRouter();
+
   const headStyle = {
     color: "green",
     padding: "10px",
@@ -68,8 +69,6 @@ function showRecipe() {
       .then(function (recipe) {
         console.log(recipe.data);
         setObject(recipe.data);
-        var summary = document.createElement("div");
-        summary.innerHTML = recipeObject.summary;
         //recipeObject = recipe.data;
         //setResponse(recipe.data)
       })
@@ -96,7 +95,9 @@ function showRecipe() {
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Row>
-            <h1 style={headStyle}>MakeMeLunch</h1>
+            <h1 style={headStyle}>
+              <a href="/">MakeMeLunch</a>
+            </h1>
           </Row>
 
           <Row>
@@ -119,11 +120,6 @@ function showRecipe() {
 
           <Row>
             <Button style={backStyle}>
-              <a href="/">
-                <b>Back to Home</b>
-              </a>
-            </Button>
-            <Button style={backStyle}>
               <Link href="/">
                 <a onClick={() => handleClick()}>
                   {" "}
@@ -133,8 +129,8 @@ function showRecipe() {
             </Button>
           </Row>
         </Container>
-        <main className={styles.main}>
-          <Col>
+        <Container fluid style={editStyle}>
+          <Col className="align-items-center">
             <h1 className={styles.titlea}>{recipeObject.title}</h1>
             <img
               src={recipeObject.image}
@@ -142,20 +138,25 @@ function showRecipe() {
               class="center"
             />
             <h3 className={styles.optStyle}>Summary: </h3>
-            <text>{recipeObject.summary}</text>
+            <div
+              className="product-des"
+              dangerouslySetInnerHTML={{ __html: recipeObject.summary }}
+            ></div>
             <h3 className={styles.optStyle}>Ingredients: </h3>
             <text>{recipeObject.extendedingredients}</text>
-            {recipeObject.extendedingredients && 
-              <div>{recipeObject.extendedingredients.map( ingredient =>
-                <h4>{ingredient.original}</h4>
-              )}</div>
-            }
+            {recipeObject.extendedIngredients && (
+              <div>
+                {recipeObject.extendedIngredients?.map((ingredient) => (
+                  <h4>{ingredient.original}</h4>
+                ))}
+              </div>
+            )}
             <h3 className={styles.optStyle}>Instructions: </h3>
             <text>{recipeObject.instructions}</text>
             <h3 className={styles.optStyle}>Original Link: </h3>
-            <Link href={recipeObject.sourceUrl}>&larr; Link</Link>
+            <Link href={recipeObject.sourceUrl}> Link</Link>
           </Col>
-        </main>
+        </Container>
         <br />
         <br />
         <br />
@@ -164,9 +165,9 @@ function showRecipe() {
   }
 }
 
-function getStringList (eingredients) {
-  let arr = []
-  eingredients.map(ingredient => arr.append(ingredient))
+function getStringList(eingredients) {
+  let arr = [];
+  eingredients.map((ingredient) => arr.append(ingredient));
 }
 
 export default showRecipe;

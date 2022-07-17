@@ -7,7 +7,7 @@ import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/ing.module.css";
 import { getAllIngredients } from "../helper/firebaseHelper";
 import { useRouter } from "next/router";
-import { Container, Row, Button } from "reactstrap";
+import { Container, Row, Button, Col } from "reactstrap";
 
 function recipes() {
   const auth = useAuth();
@@ -141,12 +141,19 @@ function recipes() {
           <div className={styles.main}>
             {recipeObject.map((recipe, index) => (
               <div id={index} key={recipe.id}>
-                <span>Id: {recipe.id}</span>
-                <span>Name: {recipe.title}</span>
-                <img src={recipe.image} />
-                <form onSubmit={(event) => viewRecipe(event, recipe.id)}>
-                  <button type="submit">More Info</button>
-                </form>
+                <Container fluid style={editStyle}>
+                  <Col className="align-items-center">
+                    <h2>{recipe.title}</h2>
+                    <br />
+                    <img src={recipe.image} />
+                    <br />
+                    <text>Id: {recipe.id}</text>
+                    <form onSubmit={(event) => viewRecipe(event, recipe.id)}>
+                      <button type="submit">More Info</button>
+                    </form>
+                    <br />
+                  </Col>
+                </Container>
               </div>
             ))}
             {/* <div>

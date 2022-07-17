@@ -81,6 +81,43 @@ function ShowRecipe() {
   if (!recipeObject) {
     return (
       <main className={styles.main}>
+        <Head>
+          <title>Show Recipe</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Row>
+          <h1 style={headStyle}>
+            <Link href="/">MakeMeLunch</Link>
+          </h1>
+        </Row>
+
+        <Row>
+          <Button style={optStyle}>
+            <Link href="/ingredient/viewingredients"> View Ingredients </Link>
+          </Button>
+          <Button style={optStyle}>
+            <Link href="/ingredient/addIng"> Add Ingredients </Link>
+          </Button>
+          <Button style={optStyle}>
+            <Link href="/ingredient/deleteIng"> Remove Ingredients </Link>
+          </Button>
+          <Button style={optStyle}>
+            <Link href="/ingredient/searchByIng">
+              Search for Recipe by Ingredient
+            </Link>
+          </Button>
+        </Row>
+        <Row>
+          <Button style={backStyle}>
+            <Link href="/">
+              <a onClick={() => handleClick()}>
+                {" "}
+                <b>Log Out </b>
+              </a>
+            </Link>
+          </Button>
+        </Row>
+        <br />
         <form onSubmit={(event) => show(event)}>
           <button type="submit">Show Recipe</button>
         </form>
@@ -92,7 +129,7 @@ function ShowRecipe() {
       <div>
         <Container fluid style={editStyle}>
           <Head>
-            <title>HomePage</title>
+            <title>Show Recipe</title>
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Row>

@@ -21,19 +21,6 @@ export default function ViewIngredients() {
   const arr = ["apple", "pineapple", "tomato", "orange", "cranberry", "pear", "strawberry", "grape", "dragonfruit", "watermelon"]
   return (
     <>
-      <header>
-        <a>MakeMyLunch</a>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/ingredient/addIng">Add Ingredients</a></li>
-            <li><a href="/ingredient/deleteIng">Remove Ingredients</a></li>
-            <li><a href="/viewingredients">View Ingredients</a></li>
-            <li><a href="/getrecipes">Get Recipes</a></li>
-            <li><a href="#">Sign Out</a></li>
-          </ul>
-        </nav>
-      </header>
       <main className={styles.main}>
         <h1 className={styles.title}>View Ingredients</h1>
         <br />

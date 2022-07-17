@@ -36,6 +36,7 @@ export default function Home() {
     const editStyle = {
       padding: "10px",
       textAlign: "center",
+      color:"red"
     };
 
     const buttonStyle = {
@@ -70,7 +71,7 @@ export default function Home() {
               </Button>
             </Col>
             <Col>
-            <Button style={optStyle}>
+            <Button style={optStyle} >
               <a href="/ingredient/addIng"> Add Ingredients </a>
               </Button>
             </Col>

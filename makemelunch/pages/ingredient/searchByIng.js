@@ -45,31 +45,6 @@ function recipes() {
 
   return (
     <>
-      <header>
-        <a>MakeMyLunch</a>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/ingredient/addIng">Add Ingredients</a>
-            </li>
-            <li>
-              <a href="/ingredient/deleteIng">Remove Ingredients</a>
-            </li>
-            <li>
-              <a href="/viewingredients">View Ingredients</a>
-            </li>
-            <li>
-              <a href="/getrecipes">Get Recipes</a>
-            </li>
-            <li>
-              <a href="#">Sign Out</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
       <main className={styles.main}>
         <h1 className={styles.title}>Search For Recipes!</h1>
         <br />

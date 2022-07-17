@@ -39,7 +39,6 @@ function recipes() {
       .then(function (response) {
         console.log(response.data);
         setObject(response.data);
-        console.log(recipeObject);
       })
       .catch(function (error) {
         console.error(error);

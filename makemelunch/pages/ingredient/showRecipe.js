@@ -12,10 +12,10 @@ function showRecipe() {
   const auth = useAuth();
   const router = useRouter();
   const data = router.query;
-  let found = false;
 
   //const[response, setResponse] = useState(null);
   const [recipeObject, setObject] = useState(null);
+  const [request, setRequest] = useState(null);
   //var recipeObject;
 
   let options = {
@@ -26,8 +26,8 @@ function showRecipe() {
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
-  if (!found) {
-    found = true;
+  if (!request) {
+    setRequest(1);
     axios
       .request(options)
       .then(function (recipe) {

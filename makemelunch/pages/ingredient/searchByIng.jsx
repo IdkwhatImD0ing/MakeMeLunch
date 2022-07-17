@@ -35,9 +35,9 @@ function recipes() {
     axios
       .request(options)
       .then(function (response) {
+        console.log(response.data)
         setObject(response.data);
         console.log(recipeObject);
-        setResponse(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -56,11 +56,19 @@ function recipes() {
         <Link href="/">&larr; Go back</Link>
         {recipeObject && (
           <div className={styles.main}>
-            <div>
+            {recipeObject.map((recipe,index) =>
+              <div id="index">
+                <span>Id: {recipe.id}</span>
+                <span>Name: {recipe.title}</span>
+                <img src={recipe.image} />
+                <button>Select</button>
+              </div>
+            )}
+            {/* <div>
               <span>Id: {recipeObject[0].id}</span>
               <span>Name: {recipeObject[0].title}</span>
               <img src={recipeObject[0].img} />
-            </div>
+            </div> */}
           </div>
         )}
       </main>

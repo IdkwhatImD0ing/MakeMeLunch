@@ -112,8 +112,9 @@ export default function Home() {
           <h3 style={summaryStyle}>
             With MakeMeLunch, you can easily make use of your left over
             groceries! Simply add ingredients to your account. Then view what
-            recipes you can make from those ingredients! It's that simple! Why
-            don't you give it a try?
+            recipes you can make from those ingredients! The top five recipes
+            that most closely match your ingredients will be given. It's that
+            simple! Why don't you give it a try?
           </h3>
         </Col>
       </>

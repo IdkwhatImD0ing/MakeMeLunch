@@ -12,30 +12,27 @@ function showRecipe() {
   const auth = useAuth();
   const router = useRouter();
   const data = router.query;
+  let found = false;
 
-  var recipeObject;
+  //const[response, setResponse] = useState(null);
+  const [recipeObject, setObject] = useState(null);
+  //var recipeObject;
 
-  const show = async (event) => {
-    event.preventDefault();
-    //const[response, setResponse] = useState(null);
-    const [recipeObject, setObject] = useState(null);
-    //var recipeObject;
-
-    let options = {
-      method: "GET",
-      url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/123193/information",
-      headers: {
-        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
-        "X-RapidAPI-Host":
-          "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      },
-    };
-
+  let options = {
+    method: "GET",
+    url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/123193/information",
+    headers: {
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    },
+  };
+  if (!found) {
+    found = true;
     axios
       .request(options)
       .then(function (recipe) {
         console.log(recipe.data);
-        setObject(response.data);
+        setObject(recipe.data);
         //recipeObject = recipe.data;
         //setResponse(recipe.data)
       })
@@ -43,10 +40,10 @@ function showRecipe() {
         console.error(error);
         return;
       });
-  };
+  }
 
-  if(response){
-    return(
+  if (recipeObject) {
+    return (
       <div>
         <div>{recipeObject.title}</div>
         <div>{recipeObject.summary}</div>
@@ -54,8 +51,8 @@ function showRecipe() {
         <div>{recipeObject.instructions}</div>
         <div>{recipeObject.image}</div>
       </div>
-    )
+    );
   }
 }
 
-export default show;
+export default showRecipe;

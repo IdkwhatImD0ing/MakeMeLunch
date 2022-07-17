@@ -9,8 +9,7 @@ import { getAllIngredients } from "../helper/firebaseHelper";
 
 function recipes() {
   const auth = useAuth();
-  const [jobject, setJObject] = useState(null);
-  const [searchedRecipes, setSearchedRecipes] = useState([]);
+  var recipeObject;
 
   const myrecipes = async (event) => {
     event.preventDefault();
@@ -36,7 +35,7 @@ function recipes() {
       .request(options)
       .then(function (response) {
         console.log(response.data);
-        setJObject(response.data);
+        recipeObject = response.data;
       })
       .catch(function (error) {
         console.error(error);

@@ -1,5 +1,5 @@
-import { database } from "../../firebase";
-import { useAuth } from "../../context/UserAuthContext";
+import { database } from "../firebase";
+import { useAuth } from "../context/UserAuthContext";
 import { useRouter } from "next/router";
 
 import {

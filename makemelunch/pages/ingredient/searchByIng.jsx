@@ -6,7 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/ing.module.css";
-import { getAllIngredients } from "../helper/firebaseHelper";
+import { getAllIngredients } from "../../helper/firebaseHelper";
 import { useRouter } from "next/router";
 import { Container, Row, Button, Col } from "reactstrap";
 

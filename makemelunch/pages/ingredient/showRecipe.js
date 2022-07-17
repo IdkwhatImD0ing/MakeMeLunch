@@ -2,25 +2,25 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/Home.module.css";
-import { getAllIngredients } from "../helper/firebaseHelper";
 
 function showRecipe() {
   const auth = useAuth();
   const router = useRouter();
-  const data = router.query;
 
   //const[response, setResponse] = useState(null);
   const [recipeObject, setObject] = useState(null);
 
   const show = async (event) => {
     event.preventDefault();
+
+    const data = router.query.id;
     let options = {
       method: "GET",
-      url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/123193/information",
+      url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${data}/information`,
       headers: {
         "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
         "X-RapidAPI-Host":
@@ -60,10 +60,6 @@ function showRecipe() {
         <div>{recipeObject.image}</div>
       </div>
     );
-  }
-
-  function view() {
-    setViewRecipe(1);
   }
 }
 

@@ -48,7 +48,7 @@ function recipes() {
 
   const viewRecipe = (event, id) => {
     event.preventDefault();
-    router.push({ pathname: "/ingredient/showRecipe", query: { object: id } });
+    router.push({ pathname: "/ingredient/showRecipe", query: { id: id } });
   };
 
   return (

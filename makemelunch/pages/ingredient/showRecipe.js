@@ -15,20 +15,19 @@ function showRecipe() {
 
   //const[response, setResponse] = useState(null);
   const [recipeObject, setObject] = useState(null);
-  const [request, setRequest] = useState(null);
-  const [viewRecipe, setViewRecipe] = useState(null);
-  //var recipeObject;
 
-  let options = {
-    method: "GET",
-    url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/123193/information",
-    headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
-      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    },
-  };
-  if (!request) {
-    setRequest(1);
+  const show = async (event) => {
+    event.preventDefault();
+    let options = {
+      method: "GET",
+      url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/123193/information",
+      headers: {
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+        "X-RapidAPI-Host":
+          "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      },
+    };
+
     axios
       .request(options)
       .then(function (recipe) {
@@ -41,11 +40,15 @@ function showRecipe() {
         console.error(error);
         return;
       });
-  }
+  };
   if (!recipeObject) {
     return (
-      <button onClick={view()}>View Recipe</button>
-    )
+      <main className={styles.main}>
+        <form onSubmit={(event) => show(event)}>
+          <button type="submit">Show Recipe</button>
+        </form>
+      </main>
+    );
   }
   if (recipeObject) {
     return (
@@ -63,6 +66,5 @@ function showRecipe() {
     setViewRecipe(1);
   }
 }
-
 
 export default showRecipe;

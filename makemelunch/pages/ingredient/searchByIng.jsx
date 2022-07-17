@@ -64,7 +64,7 @@ function recipes() {
         {recipeObject && (
           <div className={styles.main}>
             {recipeObject.map((recipe, index) => (
-              <div id="index">
+              <div id={index} key={recipe.id}>
                 <span>Id: {recipe.id}</span>
                 <span>Name: {recipe.title}</span>
                 <img src={recipe.image} />

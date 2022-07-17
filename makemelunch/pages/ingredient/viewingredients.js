@@ -1,4 +1,4 @@
-import { getAllIngredients } from "../helper/fireBaseHelper.js";
+import { getAllIngredients } from "../../helper/fireBaseHelper.js";
 import { useAuth } from "../../context/UserAuthContext.jsx";
 import Head from "next/head";
 import { useRouter } from "next/router";

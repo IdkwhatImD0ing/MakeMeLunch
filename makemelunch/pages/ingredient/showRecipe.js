@@ -145,9 +145,11 @@ function showRecipe() {
             <text>{recipeObject.summary}</text>
             <h3 className={styles.optStyle}>Ingredients: </h3>
             <text>{recipeObject.extendedingredients}</text>
-            <div>{recipeObject.extendedingredients.map( ingredient =>
-              <h4>{ingredient}</h4>
-            )}</div>
+            {recipeObject.extendedingredients && 
+              <div>{recipeObject.extendedingredients.map( ingredient =>
+                <h4>{ingredient.original}</h4>
+              )}</div>
+            }
             <h3 className={styles.optStyle}>Instructions: </h3>
             <text>{recipeObject.instructions}</text>
             <h3 className={styles.optStyle}>Original Link: </h3>

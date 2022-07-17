@@ -12,13 +12,13 @@ function showRecipe() {
   const auth = useAuth();
   const router = useRouter();
   const data = router.query;
-
-  var recipeObject;
+  const [recipeObject, setObject] = useState(null);
+  //var recipeObject;
 
   const show = async (event) => {
     event.preventDefault();
     //const[response, setResponse] = useState(null);
-    const [recipeObject, setObject] = useState(null);
+    
     //var recipeObject;
 
     let options = {
@@ -35,7 +35,7 @@ function showRecipe() {
       .request(options)
       .then(function (recipe) {
         console.log(recipe.data);
-        setObject(response.data);
+        setObject(recipe.data);
         //recipeObject = recipe.data;
         //setResponse(recipe.data)
       })
@@ -45,7 +45,8 @@ function showRecipe() {
       });
   };
 
-  if(response){
+  if(recipeObject){
+    console.log(recipeObject)
     return(
       <div>
         <div>{recipeObject.title}</div>
@@ -58,4 +59,4 @@ function showRecipe() {
   }
 }
 
-export default show;
+export default showRecipe;

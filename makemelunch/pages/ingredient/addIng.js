@@ -60,7 +60,7 @@ const add = () => {
     <>
       <Container fluid style={editStyle}>
         <Head>
-          <title>HomePage</title>
+          <title>Add Ingredients</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Row>

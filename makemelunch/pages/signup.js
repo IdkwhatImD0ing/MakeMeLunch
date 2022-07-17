@@ -34,6 +34,11 @@ const SignUp = () => {
   if (!auth.user) {
     return (
       <div className={styles.container}>
+        <Head>
+          <title>SignUp/Login</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
         <main className={styles.main}>
           <h1 className={styles.title}>Signup</h1>
           <br />

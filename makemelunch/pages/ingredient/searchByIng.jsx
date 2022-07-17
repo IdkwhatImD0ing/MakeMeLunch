@@ -90,7 +90,7 @@ function recipes() {
     <>
       <Container fluid style={editStyle}>
         <Head>
-          <title>HomePage</title>
+          <title>Search With Ingredients</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Row>

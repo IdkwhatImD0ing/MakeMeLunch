@@ -57,6 +57,11 @@ export default function ViewIngredients() {
   return (
     <>
       <div className={styles.container}>
+        <Head>
+          <title>View Ingredients</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
         <Container fluid style={editStyle}>
           <Head>
             <title>HomePage</title>

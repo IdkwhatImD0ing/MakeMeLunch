@@ -60,7 +60,7 @@ const del = () => {
     <div className={styles.container}>
       <Container fluid style={editStyle}>
         <Head>
-          <title>HomePage</title>
+          <title>Delete Ingredients</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Row>

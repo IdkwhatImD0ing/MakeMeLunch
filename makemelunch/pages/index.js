@@ -44,13 +44,51 @@ export default function Home() {
       color: "blue",
     };
 
+    const optStyle = {
+      textAlign: "center",
+    }
+
     return (
       <>
         <Container fluid style={editStyle}>
           <Row>
-            <h1 style={headStyle}>MakeMyLunch</h1>
+            <h1 style={headStyle}>MakeMeLunch</h1>
+          </Row>
 
-            <Button>
+          <Row>
+            <Col>
+              <Button style={buttonStyle}>
+                <a href="/viewrecipes"><b>Get Recipes</b></a>
+              </Button>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+            <Button style={optStyle}>
+              <a href="/ingredient/viewingredients"> View Ingredients </a>
+              </Button>
+            </Col>
+            <Col>
+            <Button style={optStyle}>
+              <a href="/ingredient/addIng"> Add Ingredients </a>
+              </Button>
+            </Col>
+
+            <Col>
+            <Button style={optStyle}>
+              <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+              </Button>
+            </Col>
+            <Col>
+            <Button style={optStyle}>
+              <a href="/ingredient/searchByIng"> Search for Recipe </a>
+              </Button>
+            </Col>
+          </Row>
+          
+          <Row>
+          <Button>
               <a href="/">Back to Home</a>
             </Button>
             <Button>
@@ -59,28 +97,7 @@ export default function Home() {
               </Link>
             </Button>
           </Row>
-          <Row>
-            <Col>
-              <a href="/ingredient/viewingredients"> View Ingredients </a>
-            </Col>
-            <Col>
-              <a href="/ingredient/addIng"> Add Ingredients </a>
-            </Col>
 
-            <Col>
-              <a href="/ingredient/deleteIng"> Remove Ingredients </a>
-            </Col>
-            <Col>
-              <a href="/ingredient/searchByIng"> Search for Recipe </a>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Button style={buttonStyle}>
-                <a href="/getrecipes">Get Recipes</a>
-              </Button>
-            </Col>
-          </Row>
         </Container>
       </>
     );

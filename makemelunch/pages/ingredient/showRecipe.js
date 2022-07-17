@@ -17,8 +17,9 @@ function showRecipe() {
 
   const show = async (event) => {
     event.preventDefault();
-    const[response, setResponse] = useState(null);
-    var recipeObject;
+    //const[response, setResponse] = useState(null);
+    const [recipeObject, setObject] = useState(null);
+    //var recipeObject;
 
     let options = {
       method: "GET",
@@ -34,8 +35,9 @@ function showRecipe() {
       .request(options)
       .then(function (recipe) {
         console.log(recipe.data);
-        recipeObject = recipe.data;
-        setResponse(recipe.data)
+        setObject(response.data);
+        //recipeObject = recipe.data;
+        //setResponse(recipe.data)
       })
       .catch(function (error) {
         console.error(error);
@@ -44,7 +46,15 @@ function showRecipe() {
   };
 
   if(response){
-    return();
+    return(
+      <div>
+        <div>{recipeObject.title}</div>
+        <div>{recipeObject.summary}</div>
+        <div>{recipeObject.extendedingredients}</div>
+        <div>{recipeObject.instructions}</div>
+        <div>{recipeObject.image}</div>
+      </div>
+    )
   }
 }
 

@@ -4,14 +4,49 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
-import styles from "../../styles/view.module.css";
+import styles from "../../styles/ing.module.css";
 import { getAllIngredients } from "../helper/firebaseHelper";
 import { useRouter } from "next/router";
+import { Container, Row, Button } from "reactstrap";
 
 function recipes() {
   const auth = useAuth();
   const [recipeObject, setObject] = useState(null);
   const router = useRouter();
+
+  const headStyle = {
+    color: "green",
+    padding: "10px",
+    fontFamily: "Sans-Serif",
+    textAlign: "center",
+  };
+
+  const editStyle = {
+    padding: "10px",
+    textAlign: "center",
+  };
+
+  const buttonStyle = {
+    padding: "10px",
+    textAlign: "center",
+    color: "blue",
+  };
+
+  const optStyle = {
+    padding: "10px",
+    textAlign: "center",
+    margin: "20px",
+  };
+
+  const backStyle = {
+    color: "red",
+    margin: "30px",
+  };
+
+  const summaryStyle = {
+    color: "black",
+    textAlign: "center",
+  };
 
   const myrecipes = async (event) => {
     event.preventDefault();
@@ -53,13 +88,58 @@ function recipes() {
 
   return (
     <>
+      <Container fluid style={editStyle}>
+        <Head>
+          <title>HomePage</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Row>
+          <h1 style={headStyle}>MakeMeLunch</h1>
+        </Row>
+
+        <Row>
+          <Button style={optStyle}>
+            <a href="/ingredient/viewingredients"> View Ingredients </a>
+          </Button>
+          <Button style={optStyle}>
+            <a href="/ingredient/addIng"> Add Ingredients </a>
+          </Button>
+          <Button style={optStyle}>
+            <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+          </Button>
+          <Button style={optStyle}>
+            <a href="/ingredient/searchByIng">
+              {" "}
+              Search for Recipe by Ingredient
+            </a>
+          </Button>
+        </Row>
+
+        <Row>
+          <Button style={backStyle}>
+            <a href="/">
+              <b>Back to Home</b>
+            </a>
+          </Button>
+          <Button style={backStyle}>
+            <Link href="/">
+              <a onClick={() => handleClick()}>
+                {" "}
+                <b>Log Out </b>
+              </a>
+            </Link>
+          </Button>
+        </Row>
+      </Container>
       <main className={styles.main}>
         <h1 className={styles.title}>Search For Recipes!</h1>
         <br />
         <form onSubmit={(event) => myrecipes(event)}>
           <button type="submit">Search</button>
         </form>
+        <br />
         <Link href="/">&larr; Go back</Link>
+        <br />
         {recipeObject && (
           <div className={styles.main}>
             {recipeObject.map((recipe, index) => (

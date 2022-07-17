@@ -25,85 +25,100 @@ export default function Home() {
     auth.logOut();
   };
 
+  const headStyle = {
+    color: "green",
+    padding: "10px",
+    fontFamily: "Sans-Serif",
+    textAlign: "center",
+  };
+
+  const editStyle = {
+    padding: "10px",
+    textAlign: "center",
+  };
+
+  const buttonStyle = {
+    padding: "10px",
+    textAlign: "center",
+    color: "blue",
+  };
+
+  const optStyle = {
+    padding: "10px",
+    textAlign: "center",
+    margin: "20px",
+  };
+
+  const backStyle = {
+    color: "red",
+    margin: "30px",
+  };
+
+  const summaryStyle = {
+    color: "black",
+    textAlign: "center",
+  };
+
   if (auth.user) {
-    const headStyle = {
-      color: "green",
-      padding: "10px",
-      fontFamily: "Sans-Serif",
-      textAlign: "center",
-    };
-
-    const editStyle = {
-      padding: "10px",
-      textAlign: "center",
-
-    };
-
-    const buttonStyle = {
-      padding: "10px",
-      textAlign: "center",
-      color: "blue",
-    };
-
-    const optStyle = {
-      textAlign: "center",
-    }
-
-    const backStyle ={
-      color:"red"
-    }
-
     return (
       <>
         <Container fluid style={editStyle}>
+          <Head>
+            <title>HomePage</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
           <Row>
             <h1 style={headStyle}>MakeMeLunch</h1>
           </Row>
 
           <Row>
-            <Col>
-              <Button style={buttonStyle}>
-                <a href="/viewrecipes"><b>Get Recipes</b></a>
-              </Button>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col>
             <Button style={optStyle}>
               <a href="/ingredient/viewingredients"> View Ingredients </a>
-              </Button>
-            </Col>
-            <Col>
-            <Button style={optStyle} >
+            </Button>
+            <Button style={optStyle}>
               <a href="/ingredient/addIng"> Add Ingredients </a>
-              </Button>
-            </Col>
-
-            <Col>
+            </Button>
             <Button style={optStyle}>
               <a href="/ingredient/deleteIng"> Remove Ingredients </a>
-              </Button>
-            </Col>
-            <Col>
-            <Button style={optStyle}>
-              <a href="/ingredient/searchByIng"> Search for Recipe by Ingredient</a>
-              </Button>
-            </Col>
-          </Row>
-          
-          <Row>
-          <Button style= {backStyle}>
-              <a href="/"><b>Back to Home</b></a>
             </Button>
-            <Button style= {backStyle}>
+            <Button style={optStyle}>
+              <a href="/ingredient/searchByIng">
+                {" "}
+                Search for Recipe by Ingredient
+              </a>
+            </Button>
+          </Row>
+
+          <Row>
+            <Button style={backStyle}>
+              <a href="/">
+                <b>Back to Home</b>
+              </a>
+            </Button>
+            <Button style={backStyle}>
               <Link href="/">
-                <a onClick={() => handleClick()}> <b>Log Out </b></a>
+                <a onClick={() => handleClick()}>
+                  {" "}
+                  <b>Log Out </b>
+                </a>
               </Link>
             </Button>
           </Row>
-
         </Container>
+        <Col>
+          <h3 style={summaryStyle}>
+            Ever forgotten to go grocery shopping and been left with a random
+            assortment of ingredients in your fridge? Now you can see what types
+            of food you can make from those ingredients!
+          </h3>
+          <br></br>
+          <h3 style={summaryStyle}>
+            With MakeMeLunch, you can easily make use of your left over
+            groceries! Simply add ingredients to your account. Then view what
+            recipes you can make from those ingredients! It's that simple! Why
+            don't you give it a try?
+          </h3>
+        </Col>
       </>
     );
   }
@@ -111,11 +126,15 @@ export default function Home() {
     return (
       <div className="container">
         <Head>
-          <title>Create Next App</title>
+          <title>SignUp/Login</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <main>
+          <Row>
+            <h1 style={headStyle}>MakeMeLunch</h1>
+          </Row>
+          <br></br>
           <Col>
             <Link href="/login" passHref>
               <Button variant="contained" color="secondary">
@@ -123,6 +142,7 @@ export default function Home() {
               </Button>
             </Link>
           </Col>
+          <br></br>
           <Col>
             <Link href="/signup" passHref>
               <Button variant="contained" color="secondary">

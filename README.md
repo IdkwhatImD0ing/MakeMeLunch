@@ -28,13 +28,13 @@ List of Ingredients for a given user:
 
 • Next.js
 
-• Javascript
+• JavaScript
 
 • [Spoontacular API](https://rapidapi.com/spoonacular/api/recipe-food-nutrition) for ingredient and recipe data
 
 • [Firebase Authentication](https://firebase.google.com/docs/auth)
 
-• [Firebase Firestore Realtime Database] (https://firebase.google.com/docs/firestore)
+• [Firebase Firestore Realtime Database](https://firebase.google.com/docs/firestore)
 
 • [Vercel](https://vercel.com/)
 
@@ -48,13 +48,13 @@ Data in database:
 
 • learning next.js in one day with no prior knowledge on js, html, and react
 
-• figuring out api calls in next.js and how to parse them
+• figuring out Api calls in next.js and how to parse them
 
 • troubles with fast refresh, must reboot app to see changes
 
 • incorporating firebase and spoonacular api into project
 
-• Hackathon only lasted for one day so big time crunch
+• Hackathon only lasted for one day so a big time crunch
 
 Example of a typical api response:
 
@@ -68,7 +68,7 @@ Example of a typical api response:
 
 • Successfully sent and received Spoonacular API calls through Axios.
 
-• Managing to successfully implement backend and frontent within 1 day.
+• Managing to successfully implement backend and frontend within 1 day.
 
 Successfully receiving an api response and displaying it after parsing:
 ![Reponse](src/recipe.png)
@@ -83,9 +83,9 @@ Successfully receiving an api response and displaying it after parsing:
 
 ## ⚠️ Known problems
 
-• View Ingriedients Crashs if no ingredients added
+• View Ingredients Crashs if no ingredients added
 
-• Security flaws in Enviromental Variables
+• Security flaws in Environmental Variables
 
 • Security flaws in database rules
 

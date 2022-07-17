@@ -63,7 +63,9 @@ export default function ViewIngredients() {
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Row>
-            <h1 style={headStyle}>MakeMeLunch</h1>
+          <h1 style={headStyle}>
+              <a href="/">MakeMeLunch</a>
+            </h1>
           </Row>
 
           <Row>
@@ -85,11 +87,7 @@ export default function ViewIngredients() {
           </Row>
 
           <Row>
-            <Button style={backStyle}>
-              <a href="/">
-                <b>Back to Home</b>
-              </a>
-            </Button>
+            
             <Button style={backStyle}>
               <Link href="/">
                 <a onClick={() => handleClick()}>
@@ -107,7 +105,7 @@ export default function ViewIngredients() {
             <button type="submit">View</button>
           </form>
           <br />
-          <Link href="/">&larr; Go back</Link>
+          <Link href="javascript:history.back()">&larr; Go back</Link>
           <br />
           {yes && (
             <div className={styles.viewingredients}>

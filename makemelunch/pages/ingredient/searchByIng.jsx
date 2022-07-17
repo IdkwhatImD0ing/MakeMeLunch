@@ -94,7 +94,9 @@ function recipes() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Row>
-          <h1 style={headStyle}>MakeMeLunch</h1>
+          <h1 style={headStyle}>
+            <a href="/">MakeMeLunch</a>
+          </h1>
         </Row>
 
         <Row>
@@ -117,11 +119,6 @@ function recipes() {
 
         <Row>
           <Button style={backStyle}>
-            <a href="/">
-              <b>Back to Home</b>
-            </a>
-          </Button>
-          <Button style={backStyle}>
             <Link href="/">
               <a onClick={() => handleClick()}>
                 {" "}
@@ -138,7 +135,7 @@ function recipes() {
           <button type="submit">Search</button>
         </form>
         <br />
-        <Link href="/">&larr; Go back</Link>
+        <Link href="javascript:history.back()">&larr; Go back</Link>
         <br />
         {recipeObject && (
           <div className={styles.main}>

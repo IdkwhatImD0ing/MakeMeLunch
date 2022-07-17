@@ -6,10 +6,12 @@ import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/view.module.css";
 import { getAllIngredients } from "../helper/firebaseHelper";
+import { useRouter } from "next/router";
 
 function recipes() {
   const auth = useAuth();
   const [recipeObject, setObject] = useState(null);
+  const router = useRouter();
 
   const myrecipes = async (event) => {
     event.preventDefault();
@@ -35,7 +37,7 @@ function recipes() {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data)
+        console.log(response.data);
         setObject(response.data);
         console.log(recipeObject);
       })
@@ -43,6 +45,11 @@ function recipes() {
         console.error(error);
         return;
       });
+  };
+
+  const viewRecipe = (event, id) => {
+    event.preventDefault();
+    router.push({ pathname: "/showRecipe", query: { object: id } });
   };
 
   return (
@@ -56,14 +63,16 @@ function recipes() {
         <Link href="/">&larr; Go back</Link>
         {recipeObject && (
           <div className={styles.main}>
-            {recipeObject.map((recipe,index) =>
+            {recipeObject.map((recipe, index) => (
               <div id="index">
                 <span>Id: {recipe.id}</span>
                 <span>Name: {recipe.title}</span>
                 <img src={recipe.image} />
-                <button>Select</button>
+                <form onSubmit={(event) => viewRecipe(event, recipe.id)}>
+                  <button type="submit">More Info</button>
+                </form>
               </div>
-            )}
+            ))}
             {/* <div>
               <span>Id: {recipeObject[0].id}</span>
               <span>Name: {recipeObject[0].title}</span>

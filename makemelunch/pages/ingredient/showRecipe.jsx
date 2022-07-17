@@ -135,6 +135,9 @@ function ShowRecipe() {
             <Image
               src={recipeObject.image}
               alt={recipeObject.title}
+              layout="intrinsic"
+              width="500"
+              height="500"
               class="center"
             />
             <h3 className={styles.optStyle}>Summary: </h3>

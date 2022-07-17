@@ -4,15 +4,16 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/view.module.css";
 import { getAllIngredients } from "../helper/firebaseHelper";
 
 function recipes() {
   const auth = useAuth();
-  var recipeObject;
+  const [recipeObject, setObject] = useState(null);
 
   const myrecipes = async (event) => {
     event.preventDefault();
+
     let ingredients = await getAllIngredients(auth);
 
     let options = {
@@ -34,8 +35,9 @@ function recipes() {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
-        recipeObject = response.data;
+        setObject(response.data);
+        console.log(recipeObject);
+        setResponse(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -52,6 +54,15 @@ function recipes() {
           <button type="submit">Search</button>
         </form>
         <Link href="/">&larr; Go back</Link>
+        {recipeObject && (
+          <div className={styles.main}>
+            <div>
+              <span>Id: {recipeObject[0].id}</span>
+              <span>Name: {recipeObject[0].title}</span>
+              <img src={recipeObject[0].img} />
+            </div>
+          </div>
+        )}
       </main>
     </>
   );

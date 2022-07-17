@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { useState, useEffect } from "react";
@@ -8,7 +9,7 @@ import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/ing.module.css";
 import { Container, Row, Button, Col } from "reactstrap";
 
-function showRecipe() {
+function ShowRecipe() {
   const auth = useAuth();
   const router = useRouter();
 
@@ -96,25 +97,24 @@ function showRecipe() {
           </Head>
           <Row>
             <h1 style={headStyle}>
-              <a href="/">MakeMeLunch</a>
+              <Link href="/">MakeMeLunch</Link>
             </h1>
           </Row>
 
           <Row>
             <Button style={optStyle}>
-              <a href="/ingredient/viewingredients"> View Ingredients </a>
+              <Link href="/ingredient/viewingredients"> View Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/addIng"> Add Ingredients </a>
+              <Link href="/ingredient/addIng"> Add Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+              <Link href="/ingredient/deleteIng"> Remove Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/searchByIng">
-                {" "}
+              <Link href="/ingredient/searchByIng">
                 Search for Recipe by Ingredient
-              </a>
+              </Link>
             </Button>
           </Row>
 
@@ -132,7 +132,7 @@ function showRecipe() {
         <Container fluid style={editStyle}>
           <Col className="align-items-center">
             <h1 className={styles.titlea}>{recipeObject.title}</h1>
-            <img
+            <Image
               src={recipeObject.image}
               alt={recipeObject.title}
               class="center"
@@ -147,7 +147,9 @@ function showRecipe() {
             {recipeObject.extendedIngredients && (
               <div>
                 {recipeObject.extendedIngredients?.map((ingredient) => (
-                  <h4>{ingredient.original}</h4>
+                  <div id={index} key={recipeObject.extendedIngredients.id}>
+                    <h4>{ingredient.original}</h4>
+                  </div>
                 ))}
               </div>
             )}
@@ -170,4 +172,4 @@ function getStringList(eingredients) {
   eingredients.map((ingredient) => arr.append(ingredient));
 }
 
-export default showRecipe;
+export default ShowRecipe;

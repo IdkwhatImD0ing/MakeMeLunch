@@ -63,31 +63,29 @@ export default function ViewIngredients() {
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Row>
-          <h1 style={headStyle}>
-              <a href="/">MakeMeLunch</a>
+            <h1 style={headStyle}>
+              <Link href="/">MakeMeLunch</Link>
             </h1>
           </Row>
 
           <Row>
             <Button style={optStyle}>
-              <a href="/ingredient/viewingredients"> View Ingredients </a>
+              <Link href="/ingredient/viewingredients"> View Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/addIng"> Add Ingredients </a>
+              <Link href="/ingredient/addIng"> Add Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+              <Link href="/ingredient/deleteIng"> Remove Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/searchByIng">
-                {" "}
+              <Link href="/ingredient/searchByIng">
                 Search for Recipe by Ingredient
-              </a>
+              </Link>
             </Button>
           </Row>
 
           <Row>
-            
             <Button style={backStyle}>
               <Link href="/">
                 <a onClick={() => handleClick()}>

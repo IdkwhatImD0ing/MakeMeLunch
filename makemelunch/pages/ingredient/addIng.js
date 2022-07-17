@@ -9,7 +9,7 @@ import { setErrorMessage } from "../../context/setErrorMessage";
 import { addIngredient } from "../helper/firebaseHelper";
 import { Container, Row, Button } from "reactstrap";
 
-const add = () => {
+const Add = () => {
   const router = useRouter();
   const auth = useAuth();
 
@@ -65,25 +65,24 @@ const add = () => {
         </Head>
         <Row>
           <h1 style={headStyle}>
-            <a href="/">MakeMeLunch</a>
+            <Link href="/">MakeMeLunch</Link>
           </h1>
         </Row>
 
         <Row>
           <Button style={optStyle}>
-            <a href="/ingredient/viewingredients"> View Ingredients </a>
+            <Link href="/ingredient/viewingredients"> View Ingredients </Link>
           </Button>
           <Button style={optStyle}>
-            <a href="/ingredient/addIng"> Add Ingredients </a>
+            <Link href="/ingredient/addIng"> Add Ingredients </Link>
           </Button>
           <Button style={optStyle}>
-            <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+            <Link href="/ingredient/deleteIng"> Remove Ingredients </Link>
           </Button>
           <Button style={optStyle}>
-            <a href="/ingredient/searchByIng">
-              {" "}
+            <Link href="/ingredient/searchByIng">
               Search for Recipe by Ingredient
-            </a>
+            </Link>
           </Button>
         </Row>
 
@@ -101,7 +100,7 @@ const add = () => {
 
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1 className={styles.title}>Add Ingredient</h1>
+          <h1 className={styles.title}>Add Ingredient: </h1>
           <br />
           <form onSubmit={(event) => addIng(event, ingredient)}>
             <label htmlFor="ingredient">Ingredient</label>
@@ -121,4 +120,4 @@ const add = () => {
   );
 };
 
-export default add;
+export default Add;

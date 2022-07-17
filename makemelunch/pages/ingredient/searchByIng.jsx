@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 import { useState } from "react";
 import axios from "axios";
@@ -9,7 +10,7 @@ import { getAllIngredients } from "../helper/firebaseHelper";
 import { useRouter } from "next/router";
 import { Container, Row, Button, Col } from "reactstrap";
 
-function recipes() {
+function Recipes() {
   const auth = useAuth();
   const [recipeObject, setObject] = useState(null);
   const router = useRouter();
@@ -95,25 +96,24 @@ function recipes() {
         </Head>
         <Row>
           <h1 style={headStyle}>
-            <a href="/">MakeMeLunch</a>
+            <Link href="/">MakeMeLunch</Link>
           </h1>
         </Row>
 
         <Row>
           <Button style={optStyle}>
-            <a href="/ingredient/viewingredients"> View Ingredients </a>
+            <Link href="/ingredient/viewingredients"> View Ingredients </Link>
           </Button>
           <Button style={optStyle}>
-            <a href="/ingredient/addIng"> Add Ingredients </a>
+            <Link href="/ingredient/addIng"> Add Ingredients </Link>
           </Button>
           <Button style={optStyle}>
-            <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+            <Link href="/ingredient/deleteIng"> Remove Ingredients </Link>
           </Button>
           <Button style={optStyle}>
-            <a href="/ingredient/searchByIng">
-              {" "}
+            <Link href="/ingredient/searchByIng">
               Search for Recipe by Ingredient
-            </a>
+            </Link>
           </Button>
         </Row>
 
@@ -145,7 +145,7 @@ function recipes() {
                   <Col className="align-items-center">
                     <h2>{recipe.title}</h2>
                     <br />
-                    <img src={recipe.image} />
+                    <Image src={recipe.image} />
                     <br />
                     <text>Id: {recipe.id}</text>
                     <form onSubmit={(event) => viewRecipe(event, recipe.id)}>
@@ -168,4 +168,4 @@ function recipes() {
   );
 }
 
-export default recipes;
+export default Recipes;

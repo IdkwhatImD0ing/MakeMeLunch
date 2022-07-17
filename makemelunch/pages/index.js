@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -69,25 +70,24 @@ export default function Home() {
           </Head>
           <Row>
             <h1 style={headStyle}>
-              <a href="/">MakeMeLunch</a>
+              <Link href="/">MakeMeLunch</Link>
             </h1>
           </Row>
 
           <Row>
             <Button style={optStyle}>
-              <a href="/ingredient/viewingredients"> View Ingredients </a>
+              <Link href="/ingredient/viewingredients"> View Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/addIng"> Add Ingredients </a>
+              <Link href="/ingredient/addIng"> Add Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/deleteIng"> Remove Ingredients </a>
+              <Link href="/ingredient/deleteIng"> Remove Ingredients </Link>
             </Button>
             <Button style={optStyle}>
-              <a href="/ingredient/searchByIng">
-                {" "}
+              <Link href="/ingredient/searchByIng">
                 Search for Recipe by Ingredient
-              </a>
+              </Link>
             </Button>
           </Row>
 
@@ -113,8 +113,8 @@ export default function Home() {
             With MakeMeLunch, you can easily make use of your left over
             groceries! Simply add ingredients to your account. Then view what
             recipes you can make from those ingredients! The top five recipes
-            that most closely match your ingredients will be given. It's that
-            simple! Why don't you give it a try?
+            that most closely match your ingredients will be given. It&apos;s
+            that simple! Why don&apos;t you give it a try?
           </h3>
         </Col>
       </>
@@ -156,7 +156,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
+            Powered by <Image src="/vercel.svg" alt="Vercel" className="logo" />
           </a>
         </footer>
 

@@ -26,34 +26,43 @@ export default function Home() {
   };
 
   if (auth.user) {
+    const headStyle = {
+      color: "green",
+      padding: "10px",
+      fontFamily: "Sans-Serif",
+      alignItems: "center"
+    };
+
+    const editStyle = {
+      padding: "10px",
+      alignItems: "center"
+    }
     return (
       <>
-        <header>
-          <a>MakeMyLunch</a>
-          <nav>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/ingredient/addIng">Add Ingredients</a>
-              </li>
-              <li>
-                <a href="/ingredient/deleteIng">Remove Ingredients</a>
-              </li>
-              <li>
-                <a href="/ingredient/viewingredients">View Ingredients</a>
-              </li>
-              <li>
-                <a href="/getrecipes">Get Recipes</a>
-              </li>
-              <Link href="/">
-                <a onClick={() => handleClick()}> Log Out</a>
-              </Link>
-            </ul>
-          </nav>
-        </header>
-        <h1>Home Page</h1>
+        <h1 style={headStyle}>MakeMyLunch</h1>
+        <h2>
+        <a href="/">Home</a>
+          <Link href="/">
+            <a onClick={() => handleClick()}> Log Out</a>
+          </Link>
+        </h2>
+        <Container fluid style={editStyle}>
+          <Row sm={8}>
+            <Col sm={5}><a href="/ingredient/viewingredients">View Ingredients</a>
+              <a href="/getrecipes">Get Recipes</a></Col>
+          </Row>
+
+          <Row>
+            <Col><a href="/ingredient/addIng">Add Ingredients</a></Col>
+            <Col>
+              <a href="/ingredient/deleteIng">Remove Ingredients</a>
+            </Col>
+
+          </Row>
+
+        </Container>
+        
+
       </>
     );
   }
@@ -136,6 +145,7 @@ export default function Home() {
           }
 
           .title a {
+            text-align: center;
             color: #0070f3;
             text-decoration: none;
           }

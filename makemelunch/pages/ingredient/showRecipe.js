@@ -16,6 +16,7 @@ function showRecipe() {
   //const[response, setResponse] = useState(null);
   const [recipeObject, setObject] = useState(null);
   const [request, setRequest] = useState(null);
+  const [viewRecipe, setViewRecipe] = useState(null);
   //var recipeObject;
 
   let options = {
@@ -41,7 +42,11 @@ function showRecipe() {
         return;
       });
   }
-
+  if (!recipeObject) {
+    return (
+      <button onClick={view()}>View Recipe</button>
+    )
+  }
   if (recipeObject) {
     return (
       <div>
@@ -53,6 +58,11 @@ function showRecipe() {
       </div>
     );
   }
+
+  function view() {
+    setViewRecipe(1);
+  }
 }
+
 
 export default showRecipe;

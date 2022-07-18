@@ -2,7 +2,7 @@
 
 ## Demo Link
 
-[Website](https://www.makemelunch.xyz)
+Website: [makemelunch.xyz](https://makemelunch.xyz)
 
 [Demo Video](https://youtu.be/SmRpW295Xkk)
 

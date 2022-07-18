@@ -102,10 +102,10 @@ const Del = () => {
         </Row>
       </Container>
       <main className={styles.main}>
-        <h1 className={styles.title}>Remove Ingredient: </h1>
+        <h1 className={styles.title}>Remove Ingredient</h1>
         <br />
         <form onSubmit={(event) => deleteIng(event, ingredient)}>
-          <label htmlFor="ingredient">Ingredient</label>
+          <label htmlFor="ingredient">Ingredient: </label>
           <input
             type="ingredient"
             name="ingredient"

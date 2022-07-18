@@ -3,7 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    
     domains: ["spoonacular.com"],
   },
 
@@ -11,6 +10,7 @@ const nextConfig = {
     images: {
       unoptimized: true,
     },
+  },
 };
 
 module.exports = nextConfig;

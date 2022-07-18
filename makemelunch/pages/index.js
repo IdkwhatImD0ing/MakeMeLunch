@@ -1,12 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { useRouter } from "next/router";
 
-import styles from "../styles/Home.module.css";
 import { useAuth } from "../context/UserAuthContext";
-import { setErrorMessage } from "../context/setErrorMessage";
 
 import {
   Container,

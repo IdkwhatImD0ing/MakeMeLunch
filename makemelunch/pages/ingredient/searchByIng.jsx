@@ -1,7 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
-
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";

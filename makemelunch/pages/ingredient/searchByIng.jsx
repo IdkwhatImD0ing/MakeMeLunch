@@ -63,7 +63,7 @@ function Recipes() {
         ingredients: ingredients,
         number: "5",
         ignorePantry: "true",
-        ranking: "1",
+        ranking: "2",
       },
       headers: {
         "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,

@@ -35,11 +35,7 @@ export async function getAllIngredients(auth) {
   let docRef = doc(colRef, "ingredients");
   let docSnap = await getDoc(docRef);
 
-  try {
-    let fields = Object.keys(docSnap.data());
-  } catch (err) {
-    return "";
-  }
+  let fields = Object.keys(docSnap.data());
 
   let string = "";
   string += fields[0];

@@ -21,6 +21,7 @@
     "framer-motion": "^6.5.1",
     "next": "12.2.2",
     "react": "18.2.0",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "18.2.0",
     "react-popper": "^2.3.0",
     "react-router": "^6.3.0",

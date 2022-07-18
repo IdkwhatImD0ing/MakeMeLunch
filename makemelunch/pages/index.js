@@ -18,7 +18,7 @@ import {
   Label,
   Input,
   Alert,
-} from "reactstrap";
+} from "react-bootstrap";
 
 export default function Home() {
   const auth = useAuth();

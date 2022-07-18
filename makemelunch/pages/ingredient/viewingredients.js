@@ -6,7 +6,7 @@ import { useState } from "react";
 //import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import styles from "../../styles/ing.module.css";
-import { Container, Row, Button } from "reactstrap";
+import { Container, Row, Button } from "react-bootstrap";
 
 export default function ViewIngredients() {
   const auth = useAuth();

@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/ing.module.css";
-import { Container, Row, Button, Col } from "reactstrap";
+import { Container, Row, Button, Col } from "react-bootstrap";
 
 function ShowRecipe() {
   const auth = useAuth();

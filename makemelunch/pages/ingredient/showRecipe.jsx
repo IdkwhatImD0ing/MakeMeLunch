@@ -71,7 +71,6 @@ function ShowRecipe() {
     axios
       .request(options)
       .then(function (recipe) {
-        console.log(recipe.data);
         setObject(recipe.data);
         //recipeObject = recipe.data;
         //setResponse(recipe.data)
@@ -179,7 +178,7 @@ function ShowRecipe() {
               dangerouslySetInnerHTML={{ __html: recipeObject.summary }}
             ></div>
             <h3 className={styles.optStyle}>Ingredients: </h3>
-            <text>{recipeObject.extendedIngredients}</text>
+            <text>{recipeObject.extendedingredients}</text>
             {recipeObject.extendedIngredients && (
               <div>
                 {recipeObject.extendedIngredients?.map((ingredient, index) => (

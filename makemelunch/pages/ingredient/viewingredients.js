@@ -23,7 +23,6 @@ export default function ViewIngredients() {
     //console.log(str);
     setIngs(str.split(","));
     setYes(1);
-    console.log(ings);
   };
   const headStyle = {
     color: "green",

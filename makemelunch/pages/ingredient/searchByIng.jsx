@@ -75,7 +75,6 @@ function Recipes() {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
         setObject(response.data);
       })
       .catch(function (error) {

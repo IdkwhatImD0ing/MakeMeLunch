@@ -149,13 +149,7 @@ function Recipes() {
                   <Col className="align-items-center">
                     <h2>{recipe.title}</h2>
                     <br />
-                    <Image
-                      src={recipe.image}
-                      alt={recipe.title}
-                      layout="intrinsic"
-                      width="500"
-                      height="500"
-                    />
+                    <img src={recipe.image} alt={recipe.title} />
                     <br />
                     <text>Id: {recipe.id}</text>
                     <form onSubmit={(event) => viewRecipe(event, recipe.id)}>

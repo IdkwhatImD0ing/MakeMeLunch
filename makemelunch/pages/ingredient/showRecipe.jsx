@@ -173,14 +173,7 @@ function ShowRecipe() {
         <Container fluid style={editStyle}>
           <Col className="align-items-center">
             <h1 className={styles.titlea}>{recipeObject.title}</h1>
-            <Image
-              src={recipeObject.image}
-              alt={recipeObject.title}
-              layout="intrinsic"
-              width="500"
-              height="500"
-              class="center"
-            />
+            <img src={recipeObject.image} alt={recipeObject.title} />
             <h3 className={styles.optStyle}>Summary: </h3>
             <div
               className="product-des"

@@ -22,8 +22,9 @@
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-popper": "^2.3.0",
     "react-router": "^6.3.0",
-    "reactstrap": "^9.1.1",
+    "reactstrap": "^9.1.2",
     "services": "^0.0.3"
   },
   "devDependencies": {

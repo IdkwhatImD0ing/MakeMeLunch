@@ -13,6 +13,10 @@ function ShowRecipe() {
   const auth = useAuth();
   const router = useRouter();
 
+  const handleClick = () => {
+    auth.logOut();
+  };
+
   const headStyle = {
     color: "green",
     padding: "10px",

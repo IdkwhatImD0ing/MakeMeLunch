@@ -13,6 +13,10 @@ export default function ViewIngredients() {
   const [ings, setIngs] = useState([]);
   const [yes, setYes] = useState(null);
 
+  const handleClick = () => {
+    auth.logOut();
+  };
+
   const viewIng = async (event) => {
     event.preventDefault();
     let str = await getAllIngredients(auth);

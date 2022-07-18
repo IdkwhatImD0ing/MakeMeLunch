@@ -15,6 +15,10 @@ function Recipes() {
   const [recipeObject, setObject] = useState(null);
   const router = useRouter();
 
+  const handleClick = () => {
+    auth.logOut();
+  };
+
   const headStyle = {
     color: "green",
     padding: "10px",

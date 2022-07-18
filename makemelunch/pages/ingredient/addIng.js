@@ -13,6 +13,10 @@ const Add = () => {
   const router = useRouter();
   const auth = useAuth();
 
+  const handleClick = () => {
+    auth.logOut();
+  };
+
   const [ingredient, setIngredient] = useState("");
 
   const headStyle = {

@@ -35,10 +35,12 @@ export async function getAllIngredients(auth) {
   let docRef = doc(colRef, "ingredients");
   let docSnap = await getDoc(docRef);
 
-  let fields = Object.keys(docSnap.data());
-  if (fields.length == 0) {
-    return "error";
+  try {
+    let fields = Object.keys(docSnap.data());
+  } catch (err) {
+    return "";
   }
+
   let string = "";
   string += fields[0];
   for (let i = 1; i < fields.length; i++) {
@@ -46,4 +48,37 @@ export async function getAllIngredients(auth) {
     string += fields[i];
   }
   return string;
+}
+
+export async function ingChanged(ingBool) {
+  let userId = auth.user.uin;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "flags");
+  updateDoc(docRef, { ingredientsChanged: ingBool });
+
+  return;
+}
+
+export async function addRecipe(recipe) {
+  let userId = auth.user.uin;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "recipe");
+  updateDoc(docRef, {
+    title: recipe.title,
+    image: recipe.image,
+    summary: recipe.summary,
+    ingredients: recipe.extendedingredients,
+    instructions: recipe.instructions,
+    link: recipe.sourceUrl,
+  });
+
+  return;
+}
+
+export async function viewRecipe() {
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "recipe");
+  let docSnap = await getDoc(docRef);
+  return docSnap.data();
 }

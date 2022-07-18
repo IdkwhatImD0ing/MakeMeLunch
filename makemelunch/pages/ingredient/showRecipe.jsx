@@ -179,7 +179,6 @@ function ShowRecipe() {
               dangerouslySetInnerHTML={{ __html: recipeObject.summary }}
             ></div>
             <h3 className={styles.optStyle}>Ingredients: </h3>
-            <text>{recipeObject.extendedingredients}</text>
             {recipeObject.extendedIngredients && (
               <div>
                 {recipeObject.extendedIngredients?.map((ingredient, index) => (

@@ -34,7 +34,14 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    background: {
+      paper: "#faebd7",
+      default: "##=faebd7",
+    },
+  },
+});
 
 const Login = () => {
   const router = useRouter();

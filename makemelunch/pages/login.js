@@ -1,24 +1,52 @@
-import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
 import { useRouter } from "next/router";
 
-import styles from "../styles/login.module.css";
 import { useAuth } from "../context/UserAuthContext";
 import { setErrorMessage } from "../context/setErrorMessage";
+
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://makemelunch.xyz/">
+        MakeMeLunch
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+const theme = createTheme();
 
 const Login = () => {
   const router = useRouter();
   const auth = useAuth();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const signIn = (event, email, password) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
+    const data = new FormData(event.currentTarget);
+
     auth
-      .logIn(email, password)
+      .logIn(data.get("email"), data.get("password"))
       .then(() => {
         // do something after signing in. For example, router.push("/");
         router.push("/");
@@ -30,55 +58,71 @@ const Login = () => {
       });
   };
 
-  // if there is no signed in user
-  if (!auth.user) {
-    return (
-      <div className={styles.container}>
-        <Head>
-          <title>Login</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <main className={styles.main}>
-          <h1 className={styles.title}>Login</h1>
-          <br />
-          <form onSubmit={(event) => signIn(event, email, password)}>
-            <div align="center">
-              <div align="center">
-                <label htmlFor="email">Email Address: </label>
-              </div>
-              <br />
-              <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-            </div>
-            <br />
-            <div align="center">
-              <div align="center">
-                <label htmlFor="password">Password: </label>
-              </div>
-              <br />
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </div>
-            <br />
-            <div align="center">
-              <button type="submit">Submit</button>
-            </div>
-          </form>
-          <br />
-          <Link href="/">&larr; Go back</Link>
-        </main>
-      </div>
-    );
-  }
+  return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Link href="/signup" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
+      </Container>
+    </ThemeProvider>
+  );
 };
 
 export default Login;

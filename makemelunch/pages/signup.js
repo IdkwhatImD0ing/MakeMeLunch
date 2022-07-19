@@ -38,7 +38,7 @@ const theme = createTheme({
   palette: {
     background: {
       paper: "#faebd7",
-      default: "##=faebd7",
+      default: "#faebd7",
     },
   },
 });

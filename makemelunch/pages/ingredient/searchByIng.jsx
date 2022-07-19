@@ -4,7 +4,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/ing.module.css";
-import { getAllIngredients } from "../../helper/firebaseHelper";
+import {
+  addRecipeGroup,
+  getAllIngredients,
+  getIngVar,
+  ingChanged,
+} from "../../helper/firebaseHelper";
 import { useRouter } from "next/router";
 import { Container, Row, Button, Col } from "react-bootstrap";
 
@@ -55,6 +60,7 @@ function Recipes() {
     event.preventDefault();
 
     let ingredients = await getAllIngredients(auth);
+    ingChanged(false);
 
     let options = {
       method: "GET",
@@ -72,15 +78,21 @@ function Recipes() {
       },
     };
 
-    axios
-      .request(options)
-      .then(function (response) {
-        setObject(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-        return;
-      });
+    if ((getIngVar(auth).ingChanged = true)) {
+      axios
+        .request(options)
+        .then(function (response) {
+          setObject(response.data);
+          addRecipeGroup(JSON.stringify(response.data));
+          ingChanged(auth, false);
+        })
+        .catch(function (error) {
+          console.error(error);
+          return;
+        });
+    } else {
+      setObject(JSON.parse(viewRecipe(auth).data));
+    }
   };
 
   const viewRecipe = (event, id) => {

@@ -46,8 +46,8 @@ export async function getAllIngredients(auth) {
   return string;
 }
 
-export async function ingChanged(ingBool) {
-  let userId = auth.user.uin;
+export async function ingChanged(auth, ingBool) {
+  let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "flags");
   updateDoc(docRef, { ingredientsChanged: ingBool });
@@ -55,23 +55,42 @@ export async function ingChanged(ingBool) {
   return;
 }
 
-export async function addRecipe(recipe) {
-  let userId = auth.user.uin;
+export async function getIngVar(auth) {
+  let userId = auth.user.uid;
   let colRef = collection(database, userId);
-  let docRef = doc(colRef, "recipe");
-  updateDoc(docRef, {
-    title: recipe.title,
-    image: recipe.image,
-    summary: recipe.summary,
-    ingredients: recipe.extendedingredients,
-    instructions: recipe.instructions,
-    link: recipe.sourceUrl,
-  });
+  let docRef = doc(colRef, "flags");
+  let docSnap = await getDoc(docRef);
+
+  return docSnap.data();
+}
+
+export async function addRecipeGroup(auth, recipe) {
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "recipeGroup");
+  updateDoc(docRef, recipe);
 
   return;
 }
 
-export async function viewRecipe() {
+export async function addRecipe(auth, recipe) {
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "recipe");
+  updateDoc(docRef, recipe);
+
+  return;
+}
+
+export async function viewRecipeGroup(auth) {
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "recipeGroup");
+  let docSnap = await getDoc(docRef);
+  return docSnap.data();
+}
+
+export async function viewRecipe(auth) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "recipe");

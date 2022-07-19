@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import styles from "../../styles/ing.module.css";
 import { useAuth } from "../../context/UserAuthContext";
 import { setErrorMessage } from "../../context/setErrorMessage";
-import { deleteIngredient } from "../../helper/firebaseHelper";
+import { deleteIngredient, ingChanged } from "../../helper/firebaseHelper";
 import { Container, Row, Button } from "react-bootstrap";
 
 const Del = () => {
@@ -57,6 +57,7 @@ const Del = () => {
     event.preventDefault();
 
     deleteIngredient(auth, ingredient);
+    ingChanged(auth, true);
     router.push("/");
   };
 

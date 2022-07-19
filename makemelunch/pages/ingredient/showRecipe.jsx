@@ -7,6 +7,7 @@ import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/ing.module.css";
 import { Container, Row, Button, Col } from "react-bootstrap";
+import { addRecipe } from "../../helper/firebaseHelper";
 
 function ShowRecipe() {
   const auth = useAuth();
@@ -72,6 +73,7 @@ function ShowRecipe() {
       .request(options)
       .then(function (recipe) {
         setObject(recipe.data);
+        addRecipe(auth, JSON.stringify(recipe.data));
         //recipeObject = recipe.data;
         //setResponse(recipe.data)
       })

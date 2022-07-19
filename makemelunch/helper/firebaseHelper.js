@@ -25,7 +25,7 @@ export function deleteIngredient(auth, ingredient) {
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "ingredients");
 
-  updateDoc(docRef, { [ingredient]: deleteField() });
+  await updateDoc(docRef, { [ingredient]: deleteField() });
   return;
 }
 
@@ -50,7 +50,7 @@ export async function ingChanged(auth, ingBool) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "flags");
-  updateDoc(docRef, { ingredientsChanged: ingBool });
+  await updateDoc(docRef, { ingredientsChanged: ingBool });
 
   return;
 }
@@ -64,11 +64,12 @@ export async function getIngVar(auth) {
   return docSnap.data();
 }
 
+
 export async function addRecipeGroup(auth, recipe) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "recipeGroup");
-  updateDoc(docRef, recipe);
+  await updateDoc(docRef, recipe);
 
   return;
 }
@@ -77,7 +78,7 @@ export async function addRecipe(auth, recipe) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "recipe");
-  updateDoc(docRef, recipe);
+  await updateDoc(docRef, recipe);
 
   return;
 }

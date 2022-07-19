@@ -91,7 +91,7 @@ function Recipes() {
           return;
         });
     } else {
-      setObject(JSON.parse(viewRecipe(auth).data));
+      setObject(JSON.parse(viewRecipeGroup(auth).data));
     }
   };
 

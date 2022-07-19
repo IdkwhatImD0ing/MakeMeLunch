@@ -7,7 +7,7 @@ import axios from "axios";
 import { useAuth } from "../../context/UserAuthContext";
 import styles from "../../styles/ing.module.css";
 import { Container, Row, Button, Col } from "react-bootstrap";
-import { addRecipe } from "../../helper/firebaseHelper";
+import { addRecipe, viewRecipe } from "../../helper/firebaseHelper";
 
 function ShowRecipe() {
   const auth = useAuth();
@@ -68,19 +68,22 @@ function ShowRecipe() {
           "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
       },
     };
-
-    axios
-      .request(options)
-      .then(function (recipe) {
-        setObject(recipe.data);
-        addRecipe(auth, JSON.stringify(recipe.data));
-        //recipeObject = recipe.data;
-        //setResponse(recipe.data)
-      })
-      .catch(function (error) {
-        console.error(error);
-        return;
-      });
+    if (viewRecipe(auth).id != data) {
+      axios
+        .request(options)
+        .then(function (recipe) {
+          setObject(recipe.data);
+          addRecipe(auth, JSON.stringify(recipe.data));
+          //recipeObject = recipe.data;
+          //setResponse(recipe.data)
+        })
+        .catch(function (error) {
+          console.error(error);
+          return;
+        });
+    } else {
+      setObject(viewRecipe(auth));
+    }
   };
   if (!recipeObject) {
     return (

@@ -60,7 +60,7 @@ function Recipes() {
     event.preventDefault();
 
     let ingredients = await getAllIngredients(auth);
-    ingChanged(false);
+    ingChanged(auth, false);
 
     let options = {
       method: "GET",
@@ -78,21 +78,16 @@ function Recipes() {
       },
     };
 
-    if ((getIngVar(auth).ingChanged = true)) {
-      axios
-        .request(options)
-        .then(function (response) {
-          setObject(response.data);
-          addRecipeGroup(JSON.stringify(response.data));
-          ingChanged(auth, false);
-        })
-        .catch(function (error) {
-          console.error(error);
-          return;
-        });
-    } else {
-      setObject(JSON.parse(viewRecipeGroup(auth).data));
-    }
+    axios
+      .request(options)
+      .then(function (response) {
+        setObject(response.data);
+        ingChanged(auth, false);
+      })
+      .catch(function (error) {
+        console.error(error);
+        return;
+      });
   };
 
   const viewRecipe = (event, id) => {

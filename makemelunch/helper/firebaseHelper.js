@@ -9,6 +9,7 @@ import {
   setDoc,
   collection,
   getDoc,
+  set,
 } from "firebase/firestore";
 
 export function addIngredient(auth, ingredient) {
@@ -25,7 +26,7 @@ export function deleteIngredient(auth, ingredient) {
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "ingredients");
 
-  await updateDoc(docRef, { [ingredient]: deleteField() });
+  updateDoc(docRef, { [ingredient]: deleteField() });
   return;
 }
 
@@ -50,7 +51,7 @@ export async function ingChanged(auth, ingBool) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "flags");
-  await updateDoc(docRef, { ingredientsChanged: ingBool });
+  setDoc(docRef, { ingredientsChanged: ingBool }, { merge: true });
 
   return;
 }
@@ -64,31 +65,13 @@ export async function getIngVar(auth) {
   return docSnap.data();
 }
 
-
-export async function addRecipeGroup(auth, recipe) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "recipeGroup");
-  await updateDoc(docRef, recipe);
-
-  return;
-}
-
-export async function addRecipe(auth, recipe) {
+export function addRecipe(auth, recipe) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "recipe");
-  await updateDoc(docRef, recipe);
+  setDoc(docRef, recipe, { merge: true });
 
   return;
-}
-
-export async function viewRecipeGroup(auth) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "recipeGroup");
-  let docSnap = await getDoc(docRef);
-  return docSnap.data();
 }
 
 export async function viewRecipe(auth) {

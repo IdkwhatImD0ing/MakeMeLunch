@@ -73,7 +73,7 @@ function ShowRecipe() {
         .request(options)
         .then(function (recipe) {
           setObject(recipe.data);
-          addRecipe(auth, JSON.stringify(recipe.data));
+          addRecipe(auth, recipe.data);
           //recipeObject = recipe.data;
           //setResponse(recipe.data)
         })
@@ -187,7 +187,7 @@ function ShowRecipe() {
             {recipeObject.extendedIngredients && (
               <div>
                 {recipeObject.extendedIngredients?.map((ingredient, index) => (
-                  <div id={index} key={recipeObject.extendedIngredients.id}>
+                  <div id={index} key={ingredient.id}>
                     <h4>{ingredient.original}</h4>
                   </div>
                 ))}

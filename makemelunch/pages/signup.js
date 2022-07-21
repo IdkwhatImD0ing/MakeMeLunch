@@ -36,10 +36,15 @@ function Copyright(props) {
 
 const theme = createTheme({
   palette: {
+    type: "dark",
+    primary: {
+      main: "#00a152",
+    },
+    secondary: {
+      main: "#  90ee90",
+    },
     background: {
-      main: "green",
-      secondary: "#90ee90",
-      paper: "#faebd7",
+      default: "#90ee90",
     },
   },
 });
@@ -81,7 +86,6 @@ const SignUp = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            backgroundColor: "#90ee90",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "green" }}>

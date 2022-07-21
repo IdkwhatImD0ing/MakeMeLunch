@@ -22,9 +22,15 @@ const rightLink = {
 
 const theme = createTheme({
   palette: {
+    type: "light",
+    primary: {
+      main: "#00a152",
+    },
+    secondary: {
+      main: "##90ee90",
+    },
     background: {
-      main: "green",
-      secondary: "#90ee90",
+      default: "#90ee90",
     },
   },
 });

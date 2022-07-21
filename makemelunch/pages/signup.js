@@ -81,6 +81,7 @@ const SignUp = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "#90ee90",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "green" }}>

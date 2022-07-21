@@ -42,6 +42,10 @@ export default function Home() {
   if (!auth.user) {
     return (
       <React.Fragment>
+        <Head>
+          <title>HomePage</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <ThemeProvider theme={theme}>
           <AppAppBar />
           <ProductHero />

@@ -102,3 +102,5 @@ Successfully receiving an api response and displaying it after parsing:
 • Security improvements
 
 • Edge Case resolution
+
+• Cache Recipes to prevent repetitive api calls. More ways of searching and using spoonacular api.

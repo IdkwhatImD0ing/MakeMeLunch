@@ -11,48 +11,21 @@ import {
   ingChanged,
 } from "../../helper/firebaseHelper";
 import { useRouter } from "next/router";
-import { Container, Row, Button, Col } from "react-bootstrap";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MainAppBar from "../components/mainappbar";
 
 function Recipes() {
   const auth = useAuth();
   const [recipeObject, setObject] = useState(null);
   const router = useRouter();
 
-  const handleClick = () => {
-    auth.logOut();
-  };
-
-  const headStyle = {
-    color: "green",
-    padding: "10px",
-    fontFamily: "Sans-Serif",
-    textAlign: "center",
-  };
-
   const editStyle = {
     padding: "10px",
-    textAlign: "center",
-  };
-
-  const buttonStyle = {
-    padding: "10px",
-    textAlign: "center",
-    color: "blue",
-  };
-
-  const optStyle = {
-    padding: "10px",
-    textAlign: "center",
-    margin: "20px",
-  };
-
-  const backStyle = {
-    color: "red",
-    margin: "30px",
-  };
-
-  const summaryStyle = {
-    color: "black",
     textAlign: "center",
   };
 
@@ -97,45 +70,11 @@ function Recipes() {
 
   return (
     <>
-      <Container fluid style={editStyle}>
-        <Head>
-          <title>Search With Ingredients</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <Row>
-          <h1 style={headStyle}>
-            <Link href="/">MakeMeLunch</Link>
-          </h1>
-        </Row>
-
-        <Row>
-          <Button style={optStyle}>
-            <Link href="/ingredient/viewingredients"> View Ingredients </Link>
-          </Button>
-          <Button style={optStyle}>
-            <Link href="/ingredient/addIng"> Add Ingredients </Link>
-          </Button>
-          <Button style={optStyle}>
-            <Link href="/ingredient/deleteIng"> Remove Ingredients </Link>
-          </Button>
-          <Button style={optStyle}>
-            <Link href="/ingredient/searchByIng">
-              Search for Recipe by Ingredient
-            </Link>
-          </Button>
-        </Row>
-
-        <Row>
-          <Button style={backStyle}>
-            <Link href="/">
-              <a onClick={() => handleClick()}>
-                {" "}
-                <b>Log Out </b>
-              </a>
-            </Link>
-          </Button>
-        </Row>
-      </Container>
+      <Head>
+        <title>Search With Ingredients</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <MainAppBar />
       <main className={styles.main}>
         <h1 className={styles.title}>Search For Recipes!</h1>
         <br />
@@ -149,18 +88,16 @@ function Recipes() {
           <div className={styles.main}>
             {recipeObject.map((recipe, index) => (
               <div id={index} key={recipe.id}>
-                <Container fluid style={editStyle}>
-                  <Col className="align-items-center">
-                    <h2>{recipe.title}</h2>
-                    <br />
-                    <img src={recipe.image} alt={recipe.title} />
-                    <br />
-                    <text>Id: {recipe.id}</text>
-                    <form onSubmit={(event) => viewRecipe(event, recipe.id)}>
-                      <button type="submit">More Info</button>
-                    </form>
-                    <br />
-                  </Col>
+                <Container style={editStyle}>
+                  <h2>{recipe.title}</h2>
+                  <br />
+                  <img src={recipe.image} alt={recipe.title} />
+                  <br />
+                  <text>Id: {recipe.id}</text>
+                  <form onSubmit={(event) => viewRecipe(event, recipe.id)}>
+                    <button type="submit">More Info</button>
+                  </form>
+                  <br />
                 </Container>
               </div>
             ))}

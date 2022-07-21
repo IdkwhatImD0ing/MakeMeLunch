@@ -25,7 +25,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://makemelunch.xyz/">
+      <Link color="inherit" href="/">
         MakeMeLunch
       </Link>{" "}
       {new Date().getFullYear()}
@@ -37,8 +37,9 @@ function Copyright(props) {
 const theme = createTheme({
   palette: {
     background: {
+      main: "green",
+      secondary: "#90ee90",
       paper: "#faebd7",
-      default: "#faebd7",
     },
   },
 });
@@ -82,7 +83,7 @@ const SignUp = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "  .main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "green" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -132,7 +133,15 @@ const SignUp = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{
+                mt: 3,
+                mb: 2,
+                backgroundColor: "green",
+                "&:hover": {
+                  backgroundColor: "#fff",
+                  color: "green",
+                },
+              }}
             >
               Sign Up
             </Button>

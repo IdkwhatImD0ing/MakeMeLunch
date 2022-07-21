@@ -4,26 +4,15 @@ import Link from "next/link";
 import { useAuth } from "../context/UserAuthContext";
 
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+
 import { useRouter } from "next/router";
-import AppAppBar from "./index/appappbar";
-import ProductHero from "./index/producthero";
-import ProductHowItWorks from "./index/producthowitworks";
-import ProductValues from "./index/productvalues";
-import ProductQuestion from "./index/projectquestion";
+import AppAppBar from "./components/appappbar";
+import ProductHero from "./components/producthero";
+import ProductHowItWorks from "./components/producthowitworks";
+import ProductValues from "./components/productvalues";
+import ProductQuestion from "./components/projectquestion";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import MainAppBar from "./components/mainappbar";
 
 const rightLink = {
   fontSize: 16,
@@ -70,151 +59,7 @@ export default function Home() {
           <title>HomePage</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <AppBar position="static" sx={{ backgroundColor: "green" }}>
-          <Container maxWidth="xl">
-            <Toolbar disableGutters>
-              <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-              <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 2,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                MakeMeLunch
-              </Typography>
-
-              <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                MakeMeLunch
-              </Typography>
-              <Box
-                sx={{
-                  flexGrow: 1,
-                  display: { xs: "none", md: "flex" },
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  href="/ingredient/addIng"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "green",
-                    "&:hover": {
-                      backgroundColor: "#fff",
-                      color: "green",
-                    },
-                  }}
-                >
-                  Add
-                </Button>
-                <Button
-                  variant="contained"
-                  href="/ingredient/deleteIng"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "green",
-                    "&:hover": {
-                      backgroundColor: "#fff",
-                      color: "green",
-                    },
-                  }}
-                >
-                  Remove
-                </Button>
-                <Button
-                  variant="contained"
-                  href="/ingredient/viewingredients"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "green",
-                    "&:hover": {
-                      backgroundColor: "#fff",
-                      color: "green",
-                    },
-                  }}
-                >
-                  View
-                </Button>
-                <Button
-                  variant="contained"
-                  href="/ingredient/searchByIng"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "green",
-                    "&:hover": {
-                      backgroundColor: "#fff",
-                      color: "green",
-                    },
-                  }}
-                >
-                  Search
-                </Button>
-                <Button
-                  variant="contained"
-                  href="/ingredient/showRecipe"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "green",
-                    "&:hover": {
-                      backgroundColor: "#fff",
-                      color: "green",
-                    },
-                  }}
-                >
-                  Recipe
-                </Button>
-                <Button
-                  variant="contained"
-                  onClick={() => {
-                    auth.logOut();
-                    router.push("/");
-                  }}
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "green",
-                    "&:hover": {
-                      backgroundColor: "#fff",
-                      color: "green",
-                    },
-                  }}
-                >
-                  Log Out
-                </Button>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
+        <MainAppBar />
         <div>
           <h3>
             Ever forgotten to go grocery shopping and been left with a random

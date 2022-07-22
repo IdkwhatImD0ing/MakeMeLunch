@@ -8,6 +8,8 @@ import { useAuth } from "../../context/UserAuthContext";
 import { setErrorMessage } from "../../context/setErrorMessage";
 import { deleteIngredient, ingChanged } from "../../helper/firebaseHelper";
 import MainAppBar from "../components/mainappbar";
+import ProjectQuestion from "../components/projectquestion";
+import { Button, Typography } from "@mui/material";
 
 const Del = () => {
   const router = useRouter();
@@ -31,7 +33,9 @@ const Del = () => {
       </Head>
       <MainAppBar />
       <main className={styles.main}>
-        <h1 className={styles.title}>Remove Ingredient</h1>
+        <Typography variant="h3" sx={{ my: 4 }}>
+          Remove Ingredients
+        </Typography>
         <br />
         <form onSubmit={(event) => deleteIng(event, ingredient)}>
           <label htmlFor="ingredient">Ingredient: </label>
@@ -46,6 +50,7 @@ const Del = () => {
         <br />
         <Link href="javascript:history.back()">&larr; Go back</Link>
       </main>
+      <ProjectQuestion />
     </>
   );
 };

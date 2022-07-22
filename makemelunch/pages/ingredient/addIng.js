@@ -7,6 +7,8 @@ import styles from "../../styles/ing.module.css";
 import { useAuth } from "../../context/UserAuthContext";
 import { addIngredient, ingChanged } from "../../helper/firebaseHelper";
 import MainAppBar from "../components/mainappbar";
+import ProjectQuestion from "../components/projectquestion";
+import { Button, Typography } from "@mui/material";
 
 const Add = () => {
   const router = useRouter();
@@ -31,7 +33,9 @@ const Add = () => {
       <MainAppBar />
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1 className={styles.title}>Add Ingredient</h1>
+          <Typography variant="h3" sx={{ my: 4 }}>
+            Add Ingredients
+          </Typography>
           <br />
           <form onSubmit={(event) => addIng(event, ingredient)}>
             <label htmlFor="ingredient">Ingredient: </label>
@@ -47,6 +51,7 @@ const Add = () => {
           <Link href="javascript:history.back()">&larr; Go back</Link>
         </main>
       </div>
+      <ProjectQuestion />
     </>
   );
 };

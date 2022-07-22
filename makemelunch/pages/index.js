@@ -27,7 +27,7 @@ const theme = createTheme({
       main: "#00a152",
     },
     secondary: {
-      main: "##90ee90",
+      main: "#7cdedc",
     },
     background: {
       default: "#90ee90",
@@ -70,21 +70,23 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <MainAppBar />
-        <div>
-          <h3>
-            Ever forgotten to go grocery shopping and been left with a random
-            assortment of ingredients in your fridge? Now you can see what types
-            of food you can make from those ingredients!
-          </h3>
-          <br></br>
-          <h3>
-            With MakeMeLunch, you can easily make use of your left over
-            groceries! Simply add ingredients to your account. Then view what
-            recipes you can make from those ingredients! The top five recipes
-            that most closely match your ingredients will be given. It&apos;s
-            that simple! Why don&apos;t you give it a try?
-          </h3>
-        </div>
+        <ThemeProvider theme={theme}>
+          <div>
+            <h3>
+              Ever forgotten to go grocery shopping and been left with a random
+              assortment of ingredients in your fridge? Now you can see what
+              types of food you can make from those ingredients!
+            </h3>
+            <br></br>
+            <h3>
+              With MakeMeLunch, you can easily make use of your left over
+              groceries! Simply add ingredients to your account. Then view what
+              recipes you can make from those ingredients! The top five recipes
+              that most closely match your ingredients will be given. It&apos;s
+              that simple! Why don&apos;t you give it a try?
+            </h3>
+          </div>
+        </ThemeProvider>
       </>
     );
   }

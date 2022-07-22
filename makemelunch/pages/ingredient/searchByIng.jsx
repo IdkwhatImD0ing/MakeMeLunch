@@ -18,6 +18,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MainAppBar from "../components/mainappbar";
+import ProductQuestion from "../components/projectquestion";
 
 function Recipes() {
   const auth = useAuth();
@@ -76,11 +77,28 @@ function Recipes() {
       </Head>
       <MainAppBar />
       <main className={styles.main}>
-        <h1 className={styles.title}>Search For Recipes!</h1>
-        <br />
-        <form onSubmit={(event) => myrecipes(event)}>
-          <button type="submit">Search</button>
-        </form>
+        <Container maxWidth="xl" sx={{ textAlign: "center" }}>
+          <Typography variant="h3" sx={{ my: 4 }}>
+            Search based on your ingredinents
+          </Typography>
+          <Box component="form" onSubmit={myrecipes} noValidate>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                backgroundColor: "green",
+                "&:hover": {
+                  backgroundColor: "#fff",
+                  color: "green",
+                },
+              }}
+            >
+              View Recipe
+            </Button>
+          </Box>
+        </Container>
         <br />
         <Link href="javascript:history.back()">&larr; Go back</Link>
         <br />
@@ -109,6 +127,7 @@ function Recipes() {
           </div>
         )}
       </main>
+      <ProductQuestion />
     </>
   );
 }

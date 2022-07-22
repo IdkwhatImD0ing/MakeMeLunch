@@ -9,8 +9,9 @@ import styles from "../../styles/ing.module.css";
 import { addRecipe, viewRecipe } from "../../helper/firebaseHelper";
 import Container from "@mui/material/Container";
 import MainAppBar from "../components/mainappbar";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import ProductQuestion from "../components/projectquestion";
 
 function ShowRecipe() {
   const auth = useAuth();
@@ -62,25 +63,34 @@ function ShowRecipe() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <MainAppBar />
-        <Container maxWidth="xl" sx={{ textAlign: "center" }}>
-          <Box component="form" onSubmit={show} noValidate>
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{
-                mt: 3,
-                mb: 2,
-                backgroundColor: "green",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  color: "green",
-                },
-              }}
-            >
-              View Recipe
-            </Button>
-          </Box>
-        </Container>
+        <main className={styles.main}>
+          <Container maxWidth="xl" sx={{ textAlign: "center" }}>
+            <Typography variant="h3" sx={{ my: 4 }}>
+              View your last viewed recipe
+            </Typography>
+            <Box component="form" onSubmit={show} noValidate>
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "green",
+                  "&:hover": {
+                    backgroundColor: "#fff",
+                    color: "green",
+                  },
+                }}
+              >
+                View Recipe
+              </Button>
+            </Box>
+          </Container>
+          <br />
+          <Link href="javascript:history.back()">&larr; Go back</Link>
+          <br />
+        </main>
+        <ProductQuestion />
       </>
     );
   }
@@ -119,6 +129,7 @@ function ShowRecipe() {
         <br />
         <br />
         <br />
+        <ProductQuestion />
       </div>
     );
   }

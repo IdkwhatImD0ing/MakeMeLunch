@@ -6,8 +6,11 @@ import { useState } from "react";
 //import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import styles from "../../styles/ing.module.css";
-
-import MainAppBar from "../components/mainappbar.js";
+import Container from "@mui/material/Container";
+import MainAppBar from "../components/mainappbar";
+import { Button, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import ProductQuestion from "../components/projectquestion";
 
 export default function ViewIngredients() {
   const auth = useAuth();
@@ -35,11 +38,28 @@ export default function ViewIngredients() {
       <MainAppBar />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>View Ingredients</h1>
-        <br />
-        <form onSubmit={(event) => viewIng(event)}>
-          <button type="submit">View</button>
-        </form>
+        <Container maxWidth="xl" sx={{ textAlign: "center" }}>
+          <Typography variant="h3" sx={{ my: 4 }}>
+            View your ingredients
+          </Typography>
+          <Box component="form" onSubmit={viewIng} noValidate>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                backgroundColor: "green",
+                "&:hover": {
+                  backgroundColor: "#fff",
+                  color: "green",
+                },
+              }}
+            >
+              View Recipe
+            </Button>
+          </Box>
+        </Container>
         <br />
         <Link href="javascript:history.back()">&larr; Go back</Link>
         <br />
@@ -53,6 +73,7 @@ export default function ViewIngredients() {
           </div>
         )}
       </main>
+      <ProductQuestion />
     </>
   );
 }

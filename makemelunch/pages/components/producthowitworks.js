@@ -62,7 +62,7 @@ function ProductHowItWorks() {
                 <Box sx={number}>1.</Box>
                 <Box
                   component="img"
-                  src="https://media.istockphoto.com/vectors/black-plus-sign-positive-symbol-vector-id688550958?k=20&m=688550958&s=612x612&w=0&h=wvzUqT3u3feYygOXg3GB9pYBbqIsyu_xpvfTX-6HOd0="
+                  src="https://www.freepnglogos.com/uploads/plus-icon/add-big-new-plus-icon-3.png"
                   alt="plus"
                   sx={image}
                 />
@@ -89,7 +89,6 @@ function ProductHowItWorks() {
               <Box sx={item}>
                 <Box sx={number}>3.</Box>
                 <Box
-                  component="img"
                   src="https://cdn-icons-png.flaticon.com/512/49/49116.png"
                   alt="search"
                   sx={image}

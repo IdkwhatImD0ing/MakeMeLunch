@@ -26,11 +26,18 @@ const image = {
   my: 4,
 };
 
+const url =
+  "https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80";
+
 function ProductHowItWorks() {
   return (
     <Box
       component="section"
-      sx={{ display: "flex", bgcolor: "secondary.light", overflow: "hidden" }}
+      sx={{
+        display: "flex",
+        backgroundImage: `url(${url})`,
+        overflow: "hidden",
+      }}
     >
       <Container
         sx={{
@@ -42,17 +49,6 @@ function ProductHowItWorks() {
           alignItems: "center",
         }}
       >
-        <Box
-          component="img"
-          src="https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80"
-          alt="curvy lines"
-          sx={{
-            pointerEvents: "none",
-            position: "absolute",
-            top: -180,
-            opacity: 0.5,
-          }}
-        />
         <Typography variant="h4" marked="center" component="h2" sx={{ mb: 14 }}>
           How it works
         </Typography>

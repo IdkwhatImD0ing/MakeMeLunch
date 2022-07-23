@@ -12,11 +12,20 @@ const item = {
   px: 5,
 };
 
+const backgroundUrl =
+  "https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2170&amp;q=80";
+
 function ProductValues() {
   return (
     <Box
       component="section"
-      sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
+      sx={{
+        display: "flex",
+        overflow: "hidden",
+        backgroundImage: `url(${backgroundUrl})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
     >
       <Container
         sx={{
@@ -28,17 +37,6 @@ function ProductValues() {
           alignItems: "center",
         }}
       >
-        <Box
-          component="img"
-          src="https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2170&amp;q=80"
-          alt="curvy lines"
-          sx={{
-            pointerEvents: "none",
-            position: "absolute",
-            top: -180,
-            opacity: 0.5,
-          }}
-        />
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
             <Box sx={item}>

@@ -26,7 +26,7 @@ const image = {
   my: 4,
 };
 
-function ProductHowItWorks() {
+function ProductHowItWorksMain() {
   return (
     <Box
       component="section"
@@ -54,7 +54,11 @@ function ProductHowItWorks() {
           }}
         />
         <Typography variant="h4" marked="center" component="h2" sx={{ mb: 14 }}>
-          How it works
+          With MakeMeLunch, you can easily make use of your left over groceries!
+          Simply add ingredients to your account. Then view what recipes you can
+          make from those ingredients! The top five recipes that most closely
+          match your ingredients will be given. It&apos;s that simple! Why
+          don&apos;t you give it a try?
         </Typography>
         <div>
           <Grid container spacing={5}>
@@ -102,18 +106,9 @@ function ProductHowItWorks() {
             </Grid>
           </Grid>
         </div>
-        <Button
-          size="large"
-          variant="contained"
-          component="a"
-          href="/signup"
-          sx={{ mt: 8, backgroundColor: "green" }}
-        >
-          Get started
-        </Button>
       </Container>
     </Box>
   );
 }
 
-export default ProductHowItWorks;
+export default ProductHowItWorksMain;

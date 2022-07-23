@@ -36,7 +36,7 @@ function ProductValues() {
             pointerEvents: "none",
             position: "absolute",
             top: -180,
-            opacity: 0.7,
+            opacity: 0.5,
           }}
         />
         <Grid container spacing={5}>

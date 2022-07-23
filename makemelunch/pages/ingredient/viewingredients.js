@@ -8,7 +8,17 @@ import Link from "next/link";
 import styles from "../../styles/ing.module.css";
 import Container from "@mui/material/Container";
 import MainAppBar from "../components/mainappbar";
-import { Button, Typography } from "@mui/material";
+import {
+  Button,
+  TableBody,
+  TableCell,
+  TableHead,
+  Typography,
+  TableContainer,
+  Paper,
+  Table,
+  TableRow,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import ProductQuestion from "../components/projectquestion";
 
@@ -42,37 +52,57 @@ export default function ViewIngredients() {
           <Typography variant="h3" sx={{ my: 4 }}>
             View your ingredients
           </Typography>
-          <Box component="form" onSubmit={viewIng} noValidate>
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{
-                mt: 3,
-                mb: 2,
-                backgroundColor: "green",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  color: "green",
-                },
-              }}
-            >
-              View Recipe
-            </Button>
-          </Box>
+          {!yes && (
+            <Box component="form" onSubmit={viewIng} noValidate>
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "green",
+                  "&:hover": {
+                    backgroundColor: "#fff",
+                    color: "green",
+                  },
+                }}
+              >
+                View Ingredients
+              </Button>
+            </Box>
+          )}
         </Container>
+
+        {yes && (
+          <TableContainer component={Paper} sx={{ width: 300, height: 300 }}>
+            <Table stickyHeader>
+              <TableHead>
+                <TableRow>
+                  <TableCell sx={{ backgroundColor: "green", color: "white" }}>
+                    Ingredients
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {ings.map((ing, index) => (
+                  <TableRow
+                    key={index}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {ing}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        )}
         <br />
         <Link href="javascript:history.back()">&larr; Go back</Link>
         <br />
-        {yes && (
-          <div className={styles.viewingredients}>
-            {ings.map((ing, index) => (
-              <div id={index} key={ing}>
-                <h3 id={ing}>{ing}</h3>
-              </div>
-            ))}
-          </div>
-        )}
       </main>
+
       <ProductQuestion />
     </>
   );

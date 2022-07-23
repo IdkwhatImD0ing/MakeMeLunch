@@ -13,6 +13,8 @@ import ProductValues from "./components/productvalues";
 import ProductQuestion from "./components/projectquestion";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MainAppBar from "./components/mainappbar";
+import ProductHeroMain from "./components/productheromain";
+import ProductHowItWorksMain from "./components/producthowitworksmain";
 
 const rightLink = {
   fontSize: 16,
@@ -64,30 +66,17 @@ export default function Home() {
   }
   if (auth.user) {
     return (
-      <>
+      <React.Fragment>
         <Head>
           <title>HomePage</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <MainAppBar />
         <ThemeProvider theme={theme}>
-          <div>
-            <h3>
-              Ever forgotten to go grocery shopping and been left with a random
-              assortment of ingredients in your fridge? Now you can see what
-              types of food you can make from those ingredients!
-            </h3>
-            <br></br>
-            <h3>
-              With MakeMeLunch, you can easily make use of your left over
-              groceries! Simply add ingredients to your account. Then view what
-              recipes you can make from those ingredients! The top five recipes
-              that most closely match your ingredients will be given. It&apos;s
-              that simple! Why don&apos;t you give it a try?
-            </h3>
-          </div>
+          <ProductHeroMain />
+          <ProductHowItWorksMain />
         </ThemeProvider>
-      </>
+      </React.Fragment>
     );
   }
 }

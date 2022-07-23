@@ -1,58 +1,93 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
 import { useRouter } from "next/router";
 
-import styles from "../../styles/ing.module.css";
 import { useAuth } from "../../context/UserAuthContext";
 import { addIngredient, ingChanged } from "../../helper/firebaseHelper";
 import MainAppBar from "../components/mainappbar";
 import ProjectQuestion from "../components/projectquestion";
 import { Button, Typography } from "@mui/material";
+import { Container } from "@mui/system";
+import { TextField, Box } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    type: "dark",
+    primary: {
+      main: "#00a152",
+    },
+    secondary: {
+      main: "#7cdedc",
+    },
+    background: {
+      default: "#90ee90",
+    },
+  },
+});
 
 const Add = () => {
   const router = useRouter();
   const auth = useAuth();
 
-  const [ingredient, setIngredient] = useState("");
-
-  const addIng = (event, ingredient) => {
+  const addIng = (event) => {
     event.preventDefault();
-
-    addIngredient(auth, ingredient);
+    const data = new FormData(event.currentTarget);
+    addIngredient(auth, data.get("ingredient"));
     ingChanged(auth, true);
     router.push("/");
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>Add Ingredients</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainAppBar />
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <Typography variant="h3" sx={{ my: 4 }}>
-            Add Ingredients
-          </Typography>
-          <br />
-          <form onSubmit={(event) => addIng(event, ingredient)}>
-            <label htmlFor="ingredient">Ingredient: </label>
-            <input
-              type="ingredient"
-              name="ingredient"
-              value={ingredient}
-              onChange={(event) => setIngredient(event.target.value)}
-            />
-            <button type="submit">Submit</button>
-          </form>
-          <br />
-          <Link href="javascript:history.back()">&larr; Go back</Link>
-        </main>
-      </div>
+      <Container>
+        <Typography variant="h3" sx={{ my: 4, textAlign: "center" }}>
+          Add Ingredients
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={addIng}
+          noValidate
+          sx={{ mt: 1, textAlign: "center " }}
+        >
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="ingredient"
+            label="Ingredient"
+            name="ingredient"
+            autoComplete="ingredient"
+            autoFocus
+          />
+          <Button
+            type="Submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              mt: 3,
+              mb: 2,
+              backgroundColor: "green",
+              "&:hover": {
+                backgroundColor: "#fff",
+                color: "green",
+              },
+            }}
+          >
+            Add
+          </Button>
+          <Link textAlign="center" href="javascript:history.back()">
+            &larr; Go back
+          </Link>
+        </Box>
+      </Container>
       <ProjectQuestion />
-    </>
+    </ThemeProvider>
   );
 };
 

@@ -20,7 +20,10 @@ import {
   TableRow,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import ProductQuestion from "../components/projectquestion";
+import ProductQuestion from "../components/productquestion";
+
+const url =
+  "https://images.unsplash.com/photo-1490735891913-40897cdaafd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
 
 export default function ViewIngredients() {
   const auth = useAuth();
@@ -45,64 +48,78 @@ export default function ViewIngredients() {
         <title>View Ingredients</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainAppBar />
 
-      <main className={styles.main}>
-        <Container maxWidth="xl" sx={{ textAlign: "center" }}>
-          <Typography variant="h3" sx={{ my: 4 }}>
-            View your ingredients
-          </Typography>
-          {!yes && (
-            <Box component="form" onSubmit={viewIng} noValidate>
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{
-                  mt: 3,
-                  mb: 2,
-                  backgroundColor: "green",
-                  "&:hover": {
-                    backgroundColor: "#fff",
-                    color: "green",
-                  },
-                }}
-              >
-                View Ingredients
-              </Button>
-            </Box>
-          )}
-        </Container>
+      <Box
+        component="section"
+        sx={{
+          display: "flex",
+          overflow: "hidden",
+          backgroundImage: `url(${url})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          flexDirection: "column",
+          height: "100vh",
+        }}
+      >
+        <MainAppBar />
+        <main className={styles.main}>
+          <Container maxWidth="xl" sx={{ textAlign: "center" }}>
+            <Typography variant="h3" sx={{ my: 4 }}>
+              View your ingredients
+            </Typography>
+            {!yes && (
+              <Box component="form" onSubmit={viewIng} noValidate>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    mt: 3,
+                    mb: 2,
+                    backgroundColor: "green",
+                    "&:hover": {
+                      backgroundColor: "#fff",
+                      color: "green",
+                    },
+                  }}
+                >
+                  View Ingredients
+                </Button>
+              </Box>
+            )}
+          </Container>
 
-        {yes && (
-          <TableContainer component={Paper} sx={{ width: 300, height: 300 }}>
-            <Table stickyHeader>
-              <TableHead>
-                <TableRow>
-                  <TableCell sx={{ backgroundColor: "green", color: "white" }}>
-                    Ingredients
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {ings.map((ing, index) => (
-                  <TableRow
-                    key={index}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {ing}
+          {yes && (
+            <TableContainer component={Paper} sx={{ width: 300, height: 300 }}>
+              <Table stickyHeader>
+                <TableHead>
+                  <TableRow>
+                    <TableCell
+                      sx={{ backgroundColor: "green", color: "white" }}
+                    >
+                      Ingredients
                     </TableCell>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        )}
-        <br />
-        <Link href="javascript:history.back()">&larr; Go back</Link>
-        <br />
-      </main>
-
+                </TableHead>
+                <TableBody>
+                  {ings.map((ing, index) => (
+                    <TableRow
+                      key={index}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        {ing}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )}
+          <br />
+          <Link href="javascript:history.back()">&larr; Go back</Link>
+          <br />
+        </main>
+      </Box>
       <ProductQuestion />
     </>
   );

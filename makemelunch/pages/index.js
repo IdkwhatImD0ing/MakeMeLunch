@@ -10,7 +10,7 @@ import AppAppBar from "./components/appappbar";
 import ProductHero from "./components/producthero";
 import ProductHowItWorks from "./components/producthowitworks";
 import ProductValues from "./components/productvalues";
-import ProductQuestion from "./components/projectquestion";
+import ProductQuestion from "./components/productquestion";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MainAppBar from "./components/mainappbar";
 import ProductHeroMain from "./components/productheromain";
@@ -75,6 +75,7 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           <ProductHeroMain />
           <ProductHowItWorksMain />
+          <ProductQuestion />
         </ThemeProvider>
       </React.Fragment>
     );

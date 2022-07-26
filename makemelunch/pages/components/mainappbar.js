@@ -63,55 +63,25 @@ function MainAppBar() {
           </Box>
           <Box
             sx={{
-              flexGrow: 1,
+              flexGrow: 0.1,
               display: { xs: "none", md: "flex" },
               justifyContent: "space-between",
             }}
           >
             <Button
               variant="contained"
-              href="/ingredient/addIng"
-              sx={{
-                mt: 3,
-                mb: 2,
-                backgroundColor: "green",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  color: "green",
-                },
-              }}
-            >
-              Add
-            </Button>
-            <Button
-              variant="contained"
-              href="/ingredient/deleteIng"
-              sx={{
-                mt: 3,
-                mb: 2,
-                backgroundColor: "green",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  color: "green",
-                },
-              }}
-            >
-              Remove
-            </Button>
-            <Button
-              variant="contained"
               href="/ingredient/viewingredients"
               sx={{
                 mt: 3,
                 mb: 2,
-                backgroundColor: "green",
+                backgroundColor: "#3A3976",
                 "&:hover": {
                   backgroundColor: "#fff",
-                  color: "green",
+                  color: "#3A3976",
                 },
               }}
             >
-              View
+              Ingredients
             </Button>
             <Button
               variant="contained"
@@ -119,10 +89,10 @@ function MainAppBar() {
               sx={{
                 mt: 3,
                 mb: 2,
-                backgroundColor: "green",
+                backgroundColor: "#3A3976",
                 "&:hover": {
                   backgroundColor: "#fff",
-                  color: "green",
+                  color: "#3A3976",
                 },
               }}
             >
@@ -134,10 +104,10 @@ function MainAppBar() {
               sx={{
                 mt: 3,
                 mb: 2,
-                backgroundColor: "green",
+                backgroundColor: "#3A3976",
                 "&:hover": {
                   backgroundColor: "#fff",
-                  color: "green",
+                  color: "#3A3976",
                 },
               }}
             >
@@ -152,10 +122,10 @@ function MainAppBar() {
               sx={{
                 mt: 3,
                 mb: 2,
-                backgroundColor: "green",
+                backgroundColor: "#3A3976",
                 "&:hover": {
                   backgroundColor: "#fff",
-                  color: "green",
+                  color: "#3A3976",
                 },
               }}
             >

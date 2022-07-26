@@ -90,10 +90,10 @@ function ShowRecipe() {
                   sx={{
                     mt: 3,
                     mb: 2,
-                    backgroundColor: "green",
+                    backgroundColor: "#3A3976",
                     "&:hover": {
                       backgroundColor: "#fff",
-                      color: "green",
+                      color: "#3A3976",
                     },
                   }}
                 >

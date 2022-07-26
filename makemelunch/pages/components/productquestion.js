@@ -25,7 +25,7 @@ function ProductQuestion() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          my: 9,
+          my: 5,
         }}
       >
         <Button
@@ -33,13 +33,13 @@ function ProductQuestion() {
             border: "4px solid currentColor",
             borderRadius: 0,
             height: "auto",
-            py: 2,
-            px: 5,
+            py: 1,
+            px: 2,
             color: "green",
           }}
           href="https://github.com/IdkwhatImD0ing/MakeMeLunch"
         >
-          <Typography variant="h4" component="span" color="green">
+          <Typography variant="h5" component="span" color="green">
             Got any questions? Need help? Want to contribute?
           </Typography>
         </Button>

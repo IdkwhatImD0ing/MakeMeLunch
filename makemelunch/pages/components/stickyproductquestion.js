@@ -28,7 +28,7 @@ function StickyProductQuestion() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          my: 9,
+          my: 5,
         }}
       >
         <Button
@@ -36,8 +36,8 @@ function StickyProductQuestion() {
             border: "4px solid currentColor",
             borderRadius: 0,
             height: "auto",
-            py: 2,
-            px: 5,
+            py: 1,
+            px: 2,
             color: "green",
           }}
           href="https://github.com/IdkwhatImD0ing/MakeMeLunch"

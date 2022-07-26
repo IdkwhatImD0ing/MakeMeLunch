@@ -127,7 +127,7 @@ export default function ViewIngredients() {
                 Add Ingredient
               </Button>
               <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+                <DialogTitle>Add Ingredient</DialogTitle>
                 <DialogContent>
                   <DialogContentText>
                     To add an ingredient, please enter your ingredient here.

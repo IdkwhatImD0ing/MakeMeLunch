@@ -10,6 +10,7 @@ import {
   collection,
   getDoc,
   set,
+  getDocFromServer,
 } from "firebase/firestore";
 
 export function addIngredient(auth, ingredient) {
@@ -34,10 +35,12 @@ export async function getAllIngredients(auth) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "ingredients");
-  let docSnap = await getDoc(docRef);
+  let docSnap = await getDocFromServer(docRef);
 
   let fields = Object.keys(docSnap.data());
-
+  if (fields.length == 0) {
+    return "";
+  }
   let string = "";
   string += fields[0];
   for (let i = 1; i < fields.length; i++) {

@@ -18,7 +18,7 @@ function MainAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <a href="/">
-            <img src="logo.png" alt="logo" height={50} />
+            <img src="/logo.png" alt="logo" height={50} />
           </a>
 
           <Typography

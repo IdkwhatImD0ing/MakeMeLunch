@@ -7,39 +7,20 @@ import Button from "@mui/material/Button";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useAuth } from "../../context/UserAuthContext";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 function MainAppBar() {
   const auth = useAuth();
   const router = useRouter();
 
-  const handleClick = () => {
-    auth.logOut();
-  };
-
   return (
     <AppBar position="static" sx={{ backgroundColor: "green" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            MakeMeLunch
-          </Typography>
+          <a href="/">
+            <img src="logo.png" alt="logo" height={50} />
+          </a>
 
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap

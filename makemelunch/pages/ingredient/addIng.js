@@ -45,7 +45,7 @@ const Add = () => {
     <ThemeProvider theme={theme}>
       <Head>
         <title>Add Ingredients</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.ico" />
       </Head>
 
       <Box

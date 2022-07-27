@@ -48,7 +48,7 @@ const Del = () => {
     <ThemeProvider theme={theme}>
       <Head>
         <title>Remove Ingredients</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.ico" />
       </Head>
       <Box
         component="section"

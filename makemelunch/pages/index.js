@@ -52,7 +52,7 @@ export default function Home() {
       <React.Fragment>
         <Head>
           <title>HomePage</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/icon.ico" />
         </Head>
         <ThemeProvider theme={theme}>
           <AppAppBar />
@@ -69,7 +69,7 @@ export default function Home() {
       <React.Fragment>
         <Head>
           <title>HomePage</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/icon.ico" />
         </Head>
         <MainAppBar />
         <ThemeProvider theme={theme}>

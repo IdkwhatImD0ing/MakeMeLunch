@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { useAuth } from "../context/UserAuthContext";
@@ -78,6 +79,10 @@ const SignUp = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <title>Sign Up</title>
+        <link rel="icon" href="/icon.ico" />
+      </Head>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

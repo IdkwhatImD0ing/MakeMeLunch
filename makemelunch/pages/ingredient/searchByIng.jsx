@@ -75,7 +75,7 @@ function Recipes() {
       <>
         <Head>
           <title>Search With Ingredients</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/icon.ico" />
         </Head>
         <Box
           component="section"
@@ -126,7 +126,7 @@ function Recipes() {
       <>
         <Head>
           <title>Search With Ingredients</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/icon.ico" />
         </Head>
         <Box
           component="section"

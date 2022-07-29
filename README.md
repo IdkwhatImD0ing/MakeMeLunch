@@ -34,6 +34,8 @@ List of Ingredients for a given user:
 
 • JavaScript
 
+• [Material UI](https://mui.com/)
+
 • [Spoontacular API](https://rapidapi.com/spoonacular/api/recipe-food-nutrition) for ingredient and recipe data
 
 • [Firebase Authentication](https://firebase.google.com/docs/auth)

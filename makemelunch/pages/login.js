@@ -50,6 +50,9 @@ const theme = createTheme({
   },
 });
 
+const url =
+  "https://images.unsplash.com/photo-1533324901691-269bbb8d61b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80";
+
 const Login = () => {
   const router = useRouter();
   const auth = useAuth();
@@ -78,75 +81,93 @@ const Login = () => {
         <title>Sign In</title>
         <link rel="icon" href="/icon.ico" />
       </Head>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "green " }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
+      <Box
+        width="100vw"
+        height="100vh"
+        direction="column"
+        alignItems="center"
+        justify="center"
+        sx={{
+          backgroundImage: `url(${url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          padding: "10%",
+        }}
+      >
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              marginTop: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              backdropFilter: "blur(10px)",
+              boxShadow: "0px 0px 10px #000000",
+              padding: "10%",
+              backgroundColor: "rgba(255, 255, 255, 0.275)",
+            }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{
-                mt: 3,
-                mb: 2,
-                backgroundColor: "green",
-                "&:hover": {
-                  backgroundColor: "#fff",
-                  color: "green",
-                },
-              }}
+            <Avatar sx={{ m: 1, bgcolor: "green " }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
             >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "green",
+                  "&:hover": {
+                    backgroundColor: "#fff",
+                    color: "green",
+                  },
+                }}
+              >
+                Sign In
+              </Button>
+              <Grid container>
+                <Grid item>
+                  <Link href="/signup" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
               </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
+          <Copyright sx={{ mt: 8, mb: 4 }} />
+        </Container>
+      </Box>
     </ThemeProvider>
   );
 };

@@ -47,7 +47,7 @@ export default function Home() {
   const auth = useAuth();
   const router = useRouter();
 
-  if (!auth.user) {
+  if (!auth || !auth.user) {
     return (
       <React.Fragment>
         <Head>

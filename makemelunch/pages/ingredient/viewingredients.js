@@ -55,7 +55,9 @@ export default function ViewIngredients() {
   const viewIng = async (event) => {
     event.preventDefault();
     let str = await getAllIngredients(auth);
-    setIngs(str.split(","));
+    let ings = str.split(",");
+    ings.sort();
+    setIngs(ings);
     setYes(1);
   };
 

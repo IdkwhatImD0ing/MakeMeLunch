@@ -39,7 +39,7 @@ const theme = createTheme({
   palette: {
     type: "dark",
     primary: {
-      main: "#00a152",
+      main: "#000000",
     },
     secondary: {
       main: "#7cdedc",
@@ -105,7 +105,7 @@ const Login = () => {
               backdropFilter: "blur(10px)",
               boxShadow: "0px 0px 10px #000000",
               padding: "10%",
-              backgroundColor: "rgba(255, 255, 255, 0.275)",
+              backgroundColor: "rgba(255, 255, 255, 0.475)",
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "green " }}>

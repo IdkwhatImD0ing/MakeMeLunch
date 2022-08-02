@@ -31,6 +31,10 @@ function Recipes() {
     textAlign: "center",
   };
 
+  if (!auth.user) {
+    router.push("/");
+  }
+
   const myrecipes = async (event) => {
     event.preventDefault();
 

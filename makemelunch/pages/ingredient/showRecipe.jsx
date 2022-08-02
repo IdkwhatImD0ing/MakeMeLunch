@@ -25,6 +25,10 @@ function ShowRecipe() {
     textAlign: "center",
   };
 
+  if (!auth.user) {
+    router.push("/");
+  }
+
   //const[response, setResponse] = useState(null);
   const [recipeObject, setObject] = useState(null);
 

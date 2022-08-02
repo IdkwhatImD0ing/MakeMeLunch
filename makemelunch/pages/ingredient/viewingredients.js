@@ -39,6 +39,7 @@ const url =
 
 export default function ViewIngredients() {
   const auth = useAuth();
+  const router = useRouter();
   const [ings, setIngs] = useState([]);
   const [yes, setYes] = useState(null);
   const [open, setOpen] = useState(false);
@@ -51,6 +52,10 @@ export default function ViewIngredients() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  if (!auth.user) {
+    router.push("/");
+  }
 
   const viewIng = async (event) => {
     event.preventDefault();

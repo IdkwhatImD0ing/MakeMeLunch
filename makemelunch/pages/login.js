@@ -57,6 +57,10 @@ const Login = () => {
   const router = useRouter();
   const auth = useAuth();
 
+  if (auth.user) {
+    router.push("/");
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 

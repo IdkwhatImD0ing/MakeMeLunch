@@ -5,6 +5,8 @@ import { useAuth } from "../context/UserAuthContext";
 
 import * as React from "react";
 
+import { useState } from "react";
+
 import { useRouter } from "next/router";
 import AppAppBar from "./components/appappbar";
 import ProductHero from "./components/producthero";
@@ -47,23 +49,6 @@ export default function Home() {
   const auth = useAuth();
   const router = useRouter();
 
-  if (!auth || !auth.user) {
-    return (
-      <React.Fragment>
-        <Head>
-          <title>HomePage</title>
-          <link rel="icon" href="/icon.ico" />
-        </Head>
-        <ThemeProvider theme={theme}>
-          <AppAppBar />
-          <ProductHero />
-          <ProductValues />
-          <ProductHowItWorks />
-          <ProductQuestion />
-        </ThemeProvider>
-      </React.Fragment>
-    );
-  }
   if (auth.user) {
     return (
       <React.Fragment>
@@ -80,4 +65,19 @@ export default function Home() {
       </React.Fragment>
     );
   }
+  return (
+    <React.Fragment>
+      <Head>
+        <title>HomePage</title>
+        <link rel="icon" href="/icon.ico" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <AppAppBar />
+        <ProductHero />
+        <ProductValues />
+        <ProductHowItWorks />
+        <ProductQuestion />
+      </ThemeProvider>
+    </React.Fragment>
+  );
 }
